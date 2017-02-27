@@ -75,8 +75,6 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_rates_on_book_id"
-    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -112,9 +110,9 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "avatar"
-    t.boolean  "is_admin", default: false 
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "is_admin",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end
