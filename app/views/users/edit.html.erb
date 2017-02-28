@@ -1,0 +1,21 @@
+<% provide :title, t("view.user.edit_user") %>
+<% provide :button_text, t("view.user.save_changes") %>
+<h1><%= t "view.user.update_profile" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "form" %>
+
+    <div class="gravatar_edit">
+      <h1>
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url, class: "gravatar", size: Settings.size_avatar %>
+      </h1>
+        <% else %>
+      <h1>
+        <%= gravatar_for @user %>
+      </h1>
+        <% end %>
+    </div>
+  </div>
+</div>

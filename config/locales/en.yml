@@ -2,7 +2,6 @@ en:
   home: "Home"
   about: "About"
   login: "Log in"
-  logout: "Logout"
   sign_up: "Sign up"
   profile: "Profile"
   settings: "Settings"
@@ -17,16 +16,25 @@ en:
   home_title: "Welcome to Book Review System"
   design_by: "Design by trungtranqn91@gmail.com"
   view:
+    shared:
+      error: "error"
+      form_content: "The form contains"
     user:
       hi: "Hi "
       account: "Account"
       profile: "Profile"
-      new_user: "New user? "     
+      new_user: "New user? "
+      edit_user: "Edit user"
       signup_now: " Sign up now!"
+      save_changes: "Save changes"
       confirm_password: "Confirmation"
+      create_account: "Create my account"
+      update_profile: "Update your profile"
       welcome: "welcome to Book Review System"
     session:
       invalid_email_password: "Invalid email/password "
   app:
     controllers:
-      not_find_user: "Could not find User"
+      please_login: "Please login to access "
+      update_success: "Profile updated"
+      not_found_user: "Could not found User"
