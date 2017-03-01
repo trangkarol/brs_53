@@ -1,0 +1,23 @@
+.name_category{
+  text-align:left;
+}
+.add_categr {
+  float:right;
+  margin:15px;
+  font-size: 18px;
+  width: 20%;
+  background-color:#337ab7;
+  text-decoration: none;
+}
+
+.add_category{
+  margin-bottom: 15px;
+  float: right;
+}
+.content-table{
+  float: left;
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 100px;
+  display:block;
+}

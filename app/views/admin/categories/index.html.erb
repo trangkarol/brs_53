@@ -1,0 +1,50 @@
+<%= provide :button_create, t("view.admin.create_category") %>
+<%= provide :button_update, t("view.admin.update_category") %>
+<div class="content-table">
+  <div class="add_category">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+      data-target="#mymodal"><%= t "admin.add_category" %></button>
+    <div id="mymodal" class="modal fade" role="dialog">
+      <% @button_name = :button_create %>
+      <% @title_form = :button_create %>
+      <%= render "button_form" %>
+    </div>
+  </div>
+  <%= render "shared/flash" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t "category_name" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each_with_index do |category, index| %>
+        <tr>
+          <td>
+            <%= count_index index %>
+          </td>
+          <td class="name_category"><%= category.name %></td>
+          <td>
+            <button type="button" class="glyphicon glyphicon-pencil"
+              data-toggle="modal"  data-target="#<%= category.id %>">
+            </button>
+            <!-- Modal -->
+            <div id="<%= category.id %>" class="modal fade" role="dialog">
+              <% @category = category %>
+              <% @button_name =  :button_update %>
+              <% @title_form =  :button_update %>
+              <%= render "button_form" %>
+            </div>
+
+            <%= link_to "" , admin_category_path(category), method: :delete,
+              data: {confirm: t("view.admin.confirm_delete")},
+              class: "glyphicon glyphicon-remove"%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @categories %>
+</div>

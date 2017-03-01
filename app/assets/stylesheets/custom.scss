@@ -1,3 +1,4 @@
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -29,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 16px; 
+  font-size: 16px;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -58,7 +59,10 @@ p {
   padding-top: 9px;
   font-weight: bold;
 }
-
+.container{
+  width: 100%;
+  height:20px;
+}
 #logo:hover {
   color: #fff;
   text-decoration: none;
@@ -66,7 +70,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 500px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
@@ -146,10 +150,41 @@ input {
     margin: 0 0 30px 0;
   }
 }
-
+.error_message{
+  float: left;
+  width: 40%;
+ }
 .field_with_errors {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
   }
+}
+/* table*/
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: center  ;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+.glyphicon-remove{
+  color: red;
+
+}
+/*alert*/
+.alert{
+  width:70%;
 }
