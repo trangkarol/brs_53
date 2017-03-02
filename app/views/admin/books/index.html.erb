@@ -1,0 +1,35 @@
+<%= provide :title_create, t("view.admin.create_book") %>
+<%= provide :title_update, t("view.admin.update_book") %>
+
+<div class="content-table">
+  <div class="add_category">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+      data-target="#form_add_category"><%= t "admin.add_book" %></button>
+    <div id="form_add_category" class="modal fade" role="dialog">
+      <% @button_name = :title_create %>
+      <% @title_form = :title_create %>
+      <%= render "form" %>
+    </div>
+  </div>
+  <%= render "shared/flash" %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t "view.admin.book_title" %></th>
+        <th><%= t "view.admin.title_category" %></th>
+        <th><%= t "view.admin.introduction" %></th>
+        <th><%= t "view.admin.author" %></th>
+        <th><%= t "view.admin.publish_date" %></th>
+        <th><%= t "view.admin.page_number" %></th>
+        <th><%= t "view.admin.picture" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <%= render partial: "load_book", collection: @books, as: :book, locals: {index: "index"} %>
+    </tbody>
+  </table>
+  <%= will_paginate @books %>
+</div>

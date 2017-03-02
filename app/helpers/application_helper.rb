@@ -5,6 +5,10 @@ module ApplicationHelper
     else
       page = params[:page].to_i * Settings.per_page - Settings.per_page
     end
-    id += page + Settings.number_increment_page
+    id += page.to_i + Settings.number_increment_page
+  end
+
+  def limit_show name
+    name.truncate Settings.length_show
   end
 end

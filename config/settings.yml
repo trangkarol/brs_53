@@ -1,5 +1,9 @@
 maximum_name_email: 50
 minimum_password: 6
 size_avatar: 50
+size_picture_book: 100
 per_page: 10
 number_increment_page: 1
+max_num_page: 5000
+min_num_page: 20
+length_show: 150

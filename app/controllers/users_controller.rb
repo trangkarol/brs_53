@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   def show
   end
 
-  def new 
-    @user = User.new      
+  def new
+    @user = User.new
   end
 
   def create
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       flash[:success] = t("view.user.hi") + "#{@user.name}, " + t("view.user.welcome")
       redirect_to @user
     else
-      render :new 
+      render :new
     end
   end
 
@@ -26,12 +26,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes user_params 
+    if @user.update_attributes user_params
       flash[:success] = t "app.controllers.update_success"
       redirect_to @user
-    else      
-      render :edit 
-    end   
+    else
+      render :edit
+    end
   end
 
   private
@@ -45,6 +45,6 @@ class UsersController < ApplicationController
     unless @user
       flash[:warning] = t "app.controllers.not_found_user"
       redirect_to root_path
-    end  
+    end
   end
 end

@@ -6,7 +6,7 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @category = Category.new
-    @categories = Category.list_category_desc.paginate page: params[:page],
+    @categories = Category.list_newest_desc.paginate page: params[:page],
       per_page: Settings.per_page
   end
 
