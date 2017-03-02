@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170224145418) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
+    t.string   "introduction"
     t.integer  "category_id"
     t.string   "author"
     t.datetime "publish_date"
@@ -31,7 +32,6 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.string   "picture"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.text     "introduction"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_marks_on_book_id"
+    t.index ["user_id"], name: "index_marks_on_user_id"
   end
 
   create_table "rates", force: :cascade do |t|
@@ -75,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_rates_on_book_id"
+    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|

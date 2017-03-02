@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get "sessions/new"
   get "static_pages/home"
   get "static_pages/about"
   get "/signup", to: "users#new"
@@ -12,4 +11,9 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :users
+
+  namespace :admin do
+    root "admin#index"
+    resources :categories
+  end
 end
