@@ -1,0 +1,31 @@
+<tr>
+  <td class= "index_td">
+    <%= count_index index.to_i %>
+  </td>
+  <td class="name_table"><%= book.title %></td>
+  <td class="name_table"><%= book.category_name %></td>
+  <td class="name_table"><%= limit_show book.introduction %></td>
+  <td class="name_table"><%= book.author %></td>
+  <td class="short_td">
+    <%= l book.publish_date, format: :long   %></td>
+  <td class="short_td"><%= book.page_number %></td>
+  <td class="image_td">
+    <%= image_tag book.picture,
+      size: Settings.size_picture_book if book.picture.present? %>
+  </td>
+  <td class= "option_td" >
+    <button type="button" class="glyphicon glyphicon-pencil"
+      data-toggle="modal" data-target="#<%= book.id %>">
+    </button>
+    <div id="<%= book.id %>" class="modal fade" role="dialog">
+      <% @book = book %>
+      <% @button_name = :title_update %>
+      <% @title_form = :title_update  %>
+      <%= render "form" %>
+    </div>
+
+    <%= link_to "" , admin_book_path(book), method: :delete,
+      data: {confirm: t("view.admin.confirm_delete")},
+      class: "glyphicon glyphicon-remove"%>
+  </td>
+</tr>

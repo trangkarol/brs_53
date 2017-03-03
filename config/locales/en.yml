@@ -56,6 +56,17 @@ en:
       create_success: "Create category completed"
       confirm_delete: "Are you sure you want to delete? "
       category_not_blank: "Category name not blank"
+      author: "Author"
+      picture: "Book cover"
+      book_title: "Title book"
+      add_book: "Add new book"
+      page_number: "Page number"
+      update_book: "Update book"
+      publish_date: "Publish date"
+      create_book: "Add new book"
+      add_book_fail: "Add book fail "
+      add_book_success: "Add book success "
+      introduction: "Introduction"
   app:
     controllers:
       please_login: "Please login to access "
