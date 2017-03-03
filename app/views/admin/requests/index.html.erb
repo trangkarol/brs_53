@@ -1,0 +1,23 @@
+<%= provide :button_ok, t("view.admin.ok") %>
+<%= provide :title_check, t("view.admin.title_check") %>
+<div class="content-table">
+  <%= render "shared/flash" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t "view.admin.user_name" %></th>
+        <th><%= t "view.admin.title_book" %></th>
+        <th><%= t "view.admin.title_category" %></th>
+        <th><%= t "view.admin.status" %></th>
+        <th><%= t "view.admin.request_create_at" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "load_request", collection: @requests,
+        as: :request %>
+    </tbody>
+  </table>
+  <%= will_paginate @requests %>
+</div>

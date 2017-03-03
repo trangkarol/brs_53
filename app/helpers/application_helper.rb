@@ -5,10 +5,24 @@ module ApplicationHelper
     else
       page = params[:page].to_i * Settings.per_page - Settings.per_page
     end
-    id += page.to_i + Settings.number_increment_page
+    id += page + Settings.number_increment_page
   end
 
   def limit_show name
     name.truncate Settings.length_show
   end
+
+  def display_status request
+    case
+    when request.pending?
+      t "view.admin.pending"
+    when request.accept?
+      t "view.admin.accept"
+    when request.reject?
+      t "view.admin.reject"
+    else
+      t "view.admin.cancel"
+    end
+  end
+
 end
