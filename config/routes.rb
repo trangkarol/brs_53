@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     root "admin#index"
     resources :categories
     resources :books
+    resources :users
     resources :requests, except: [:show]
   end
 end

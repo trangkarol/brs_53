@@ -1,0 +1,29 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"></button>
+      <h4 class="modal-title"><%= yield(@title_form) %></h4>
+    </div>
+    <div class="modal-body">
+      <p>
+        <%= form_for [:admin, @user] do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+          <%= f.file_field :avatar, accept: Settings.accept_image %>
+          <%= image_tag @user.avatar, size: Settings.size_picture %>
+          <%= f.submit yield(@button_name), class: "btn btn-primary" %>
+        <% end %>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">
+        <%= t "admin.close" %></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<tr>
+  <td class= "index_td">
+    <%= user.id %>
+  </td>
+  <td class="name_table"><%= user.name %></td>
+  <td class="name_table"><%= user.email %></td>
+  <td class="image_td">
+    <%= image_tag user.avatar,
+      size: Settings.size_picture_avatar %>
+  </td>
+  <td class="name_table"><%= user.created_at %></td>
+  <td class= "short_td" >
+    <button type="button" class="glyphicon glyphicon-pencil"
+      data-toggle="modal" data-target="#<%= user.id %>">
+    </button>
+    <div id="<%= user.id %>" class="modal fade" role="dialog">
+      <% @user = user %>
+      <% @button_name = :title_update %>
+      <% @title_form = :title_update  %>
+      <%= render "form" %>
+    </div>
+    <% unless user.is_admin? %>
+      <%= link_to "" , admin_user_path(user), method: :delete,
+        data: {confirm: t("view.admin.confirm_delete")},
+        class: "glyphicon glyphicon-remove"%>
+    <% end %>
+  </td>
+</tr>
