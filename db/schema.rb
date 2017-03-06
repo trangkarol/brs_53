@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.string   "introduction"
     t.integer  "category_id"
     t.string   "author"
-    t.datetime "publish_date"
+    t.date     "publish_date"
     t.integer  "page_number"
     t.string   "picture"
-    t.datetime "created_at",   null: false
+    t.decimal  "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["category_id"], name: "index_books_on_category_id"
   end
@@ -92,11 +92,10 @@ ActiveRecord::Schema.define(version: 20170224145418) do
     t.integer  "user_id"
     t.string   "title"
     t.integer  "category_id"
-    t.integer  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_requests_on_category_id"
-    t.index ["user_id"], name: "index_requests_on_user_id"
+    t.integer  "status",      default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "visible",     default: true
   end
 
   create_table "reviews", force: :cascade do |t|

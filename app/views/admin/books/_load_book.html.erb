@@ -1,19 +1,19 @@
 <tr>
-  <td class= "index_td">
+  <td class= "index-td">
     <%= count_index index.to_i %>
   </td>
-  <td class="name_table"><%= book.title %></td>
-  <td class="name_table"><%= book.category_name %></td>
-  <td class="name_table"><%= limit_show book.introduction %></td>
-  <td class="name_table"><%= book.author %></td>
-  <td class="short_td">
+  <td class="name-table"><%= book.title %></td>
+  <td class="name-table"><%= book.category_name %></td>
+  <td class="name-table"><%= limit_show book.introduction %></td>
+  <td class="name-table"><%= book.author %></td>
+  <td class="short-td">
     <%= l book.publish_date, format: :long   %></td>
-  <td class="short_td"><%= book.page_number %></td>
-  <td class="image_td">
+  <td class="short-td"><%= book.page_number %></td>
+  <td class="image-td">
     <%= image_tag book.picture,
       size: Settings.size_picture_book if book.picture.present? %>
   </td>
-  <td class= "option_td" >
+  <td class= "option-td" >
     <button type="button" class="glyphicon glyphicon-pencil"
       data-toggle="modal" data-target="#<%= book.id %>">
     </button>
