@@ -7,4 +7,7 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def default_url(*args)
+    "/assets/" + [version_name, "ava-defaut.png"].compact.join('_')
+  end
 end

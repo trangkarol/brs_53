@@ -1,0 +1,31 @@
+<%= provide :title_create, t("view.admin.create_user") %>
+<%= provide :title_update, t("view.admin.update_user") %>
+
+<div class="content-table">
+  <div class="add_category">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+      data-target="#form_add_user"><%= t "admin.add_user" %></button>
+    <div id="form_add_user" class="modal fade" role="dialog">
+      <% @button_name = :title_create %>
+      <% @title_form = :title_create %>
+      <%= render "form" %>
+    </div>
+  </div>
+  <%= render "shared/flash" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t "view.admin.id" %></th>
+        <th><%= t "view.admin.user_name" %></th>
+        <th><%= t "view.admin.user_email" %></th>
+        <th><%= t "view.admin.user_avatar" %></th>
+        <th><%= t "view.admin.user_create_at" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "load_user", collection: @users, as: :user %>
+    </tbody>
+  </table>
+  <%= will_paginate @books %>
+</div>
