@@ -11,7 +11,7 @@
     </div>
   </div>
   <%= render "shared/flash" %>
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th></th>
@@ -37,7 +37,6 @@
               <% @title_form =  :button_update %>
               <%= render "button_form" %>
             </div>
-
             <%= link_to "" , admin_category_path(category), method: :delete,
               data: {confirm: t("view.admin.confirm_delete")},
               class: "glyphicon glyphicon-remove"%>

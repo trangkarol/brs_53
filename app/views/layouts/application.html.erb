@@ -1,22 +1,18 @@
-<% provide :title, t("home") %>
+
 <!DOCTYPE html>
 <html>
   <head>
     <title><%= yield(:title) %> <%= t "title_page" %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", media: "all",
-      "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <%= render "layouts/shim"%>
   </head>
   <body>
-    <%= render "layouts/header" %>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+    <%= render "static_pages/menu" %>
     <div class="container">
       <%= yield %>
-      <%= render "layouts/footer" %>
+      <%= render "static_pages/footer" %>
     </div>
   </body>
 </html>

@@ -7,34 +7,25 @@
     <div class="modal-body">
       <p>
         <%= form_for [:admin, @book] do |f| %>
-
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
-
           <%= f.label :author %>
           <%= f.text_field :author, class: "form-control" %>
-
            <%= f.label :introduction %>
           <%= f.text_area :introduction, class: "form-control" %>
-
           <%= f.label :publish_date %>
           <%= f.date_field :publish_date, class: "form-control" %>
-
           <%= f.label :page_number %>
           <%= f.number_field :page_number, max: Settings.max_num_page,
             min: Settings.min_num_page, class: "form-control" %>
-
           <%= f.label :category_id %>
           <%= f.select "category_id",
             options_for_select(@categories.collect{|u| [u.name, u.id]}),
             class: "select-form" %>
-
           <%= f.label :picture %>
           <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
-
           <%= image_tag @book.picture,
             size: Settings.size_picture_book if @book.picture.present? %>
-
           <%= f.submit yield(@button_name), class: "btn btn-primary" %>
         <% end %>
       </p>

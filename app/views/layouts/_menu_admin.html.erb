@@ -1,18 +1,14 @@
 <div class="menu-admin">
-  <div class="col-md-2">
-    <div class="sidebar content-box" style="display: block;">
-      <ul class="nav">
-        <li><%= link_to t("view.admin.home_page"), static_pages_home_path,
-          class: "glyphicon glyphicon-home" %></li>
-        <li><%= link_to t("view.admin.category"),
-          admin_categories_path, class: "glyphicon glyphicon-stats" %></li>
-        <li><%= link_to t("view.admin.book"), admin_books_path,
-          class: "glyphicon glyphicon-calendar" %></li>
-        <li><%= link_to t("view.admin.user"), admin_users_path,
-          class: "glyphicon glyphicon-list" %></li>
-        <li><%= link_to t("view.admin.request"), admin_requests_path,
-          class: "glyphicon glyphicon-pencil" %></li>
-      </ul>
-    </div>
-  </div>
+  <ul class=" menu-nav nav ">
+    <li><%= link_to t("view.admin.home_page"), static_pages_home_path,
+      class: "glyphicon glyphicon-home" %></li>
+    <li><%= link_to t("view.admin.category"),
+      admin_categories_path, class: "glyphicon glyphicon-stats" %></li>
+    <li><%= link_to t("view.admin.book"), admin_books_path,
+      class: "glyphicon glyphicon-calendar" %></li>
+    <li><%= link_to t("view.admin.user"), admin_users_path,
+      class: "glyphicon glyphicon-list" %></li>
+    <li><%= link_to t("view.admin.request"), admin_requests_path,
+      class: "glyphicon glyphicon-pencil" %></li>
+  </ul>
 </div>

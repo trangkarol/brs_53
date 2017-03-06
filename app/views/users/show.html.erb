@@ -1,21 +1,74 @@
 <% provide :title, t("view.user.profile") %>
-<% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-     <h1>
-       <% if @user.avatar? %>
-         <%= image_tag @user.avatar.url, class: "gravatar", size: Settings.size_avatar %>
-         <%= @user.name %>
-     </h1>
-      <% else %>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <% end %>
-    </section>
-  </aside>
+<% provide :button_text, t("view.user.save_changes") %>
+<div id="main">
+  <div class="main-holder">
+    <div class="main-frame">
+      <div class="panel-holder">
+        <div class="panel">
+          <ul class="breadcrumbs">
+          </ul>
+        </div>
+      </div>
+      <div id="content-profile">
+        <!-- content -->
+        <div class="content-profile">
+          <div class="box">
+            <h2><%= t "view.user.profile" %></h2>
+            <div class="holder">
+              <div class="frame-box">
+                <div class="container">
+                  <!-- description -->
+                  <div class="descript-profile">
+                    <div class="info-panel">
+                      <div class="tabs-area">
+                        <div class="tab-content" id="tab-1">
+                          <div class="container">
+                            <div id="wrapper-profile" class="form-signup-edit">
+                              <div id="login" class="animate form">
+                                <h1><%= t "view.user.profile" %></h1>
+                                <% flash.each do |message_type, message| %>
+                                  <div class="alert alert-<%= message_type %>">
+                                    <%= message %>
+                                  </div>
+                                <% end %>
+                                <ul class="list-group">
+                                  <li class="list-group-item
+                                    glyphicon glyphicon-user">
+                                    <%= t "view.user.username" %>
+                                    <%= @user.name %>
+                                  </li>
+                                </ul>
+                                <div class="row">
+                                  <div class="col-md-6 col-md-offset-3">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel">
+                        <div id="gallery">
+                          <div id="panel">
+                            <div class="gravatar-edit">
+                              <%= gravatar_for @user %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% if logged_in? %>
+          <%= render "users/profile_menu" %>
+        <% else %>
+          <%= render "static_pages/aside" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

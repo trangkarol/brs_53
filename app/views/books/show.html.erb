@@ -1,0 +1,186 @@
+<div id="main">
+  <!-- main-content -->
+  <div class="main-holder">
+    <div class="main-frame">
+      <!-- breadcrumbs and social icons -->
+      <div class="panel-holder">
+        <div class="panel">
+          <ul class="breadcrumbs">
+            <li><a href="index-2.html"><%= t "view.book.home" %></a></li>
+            <li><a href="index-2.html"><%= t "view.book.all_book" %></a></li>
+            <li><%= t "view.book.title" %></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <!-- content -->
+        <div class="content">
+          <div class="box">
+            <h2><%= t "view.book.title" %></h2>
+            <span class="top-new big-top"></span>
+            <div class="holder">
+              <div class="frame-box">
+                <div class="container">
+                  <!-- description -->
+                  <div class="description-box">
+                    <h3><%= t "view.book.title" %></h3>
+                    <div class="info-panel">
+                      <!-- star rating -->
+                      <ul class="star-rating">
+                        <li>
+                          <a href="#" class="one-star"></a>
+                        </li>
+                        <li>
+                          <a href="#" class="two-stars"></a>
+                        </li>
+                        <li><a href="#" class="three-stars"></a></li>
+                        <li class="active"><a href="#"
+                          class="four-stars"></a></li>
+                        <li><a href="#" class="five-stars"></a></li>
+                      </ul>
+                      <ul class="reviews">
+                        <li>
+                          <a href="#"><%= t "view.book.count_review" %></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="info-panel">
+                      <span class="like"><%= t "view.book.count_like" %></span>
+                      <form class="form" action="#">
+                        <fieldset>
+                          <button class="more sub-more wishlist">
+                          <%= t "view.book.button_like" %></button>
+                        </fieldset>
+                      </form>
+                    </div>
+                    <div class="text-holder">
+                      <p><%= t "view.book.introduction" %> </p>
+                      <ul>
+                        <li><%= t "view.book.introduction" %></li>
+                        <li class="colored"><%= t "view.book.introduction" %></li>
+                      </ul>
+                      <div class="btns-area">
+                        <a href="#" class="more add-more "><span>
+                          <%= t "view.book.add_bookmark" %></span></a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- carousel -->
+                  <div class="carousel">
+                    <div id="gallery">
+                      <div id="panel">
+                        <%= image_tag "banner.jpg", id: "lage-image" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="blocks-holder subblocks">
+                  <!-- tabs -->
+                  <div class="tabs-area">
+                    <ul class="tabset">
+                      <li><a href="#tab-1" class="tab">
+                        <%= t "view.book.description_tab" %></a></li>
+                      <li>
+                        <a href="#tab-2" class="tab active">
+                          <%= t "view.book.review_tab" %>
+                            <span><%= t "view.book.count_review" %></span>
+                        </a>
+                      </li>
+                    </ul>
+                    <!-- content desctipt -->
+                    <div class="tab-content" id="tab-1">
+                      <p><%= t "view.book.description_tab" %></p>
+                      <h3><%= t "view.book.description_tab" %></h3>
+                      <ul class="features-list">
+                        <li class="colored">
+                          <%= t "view.book.description_tab" %></li>
+                      </ul>
+                    </div>
+                    <!-- content review -->
+                    <div class="tab-content" id="tab-2">
+                      <div class="comments-block">
+                        <div class="heading">
+                          <div class="alignright">
+                            <time><%= t "view.book.time_review" %></time>
+                          </div>
+                          <!-- coment review -->
+                          <div class="alignleft">
+                            <h3 class="author">
+                              <%= t "view.book.username_review" %>
+                            </h3>
+                            <!-- star rating -->
+                              <ul class="star-rating star-rating1">
+                                <li><a href="#" class="two-stars"></a>
+                                </li>
+                                <li><a href="#" class="three-stars"></a></li>
+                                <li class="active"><a href="#"
+                                  class="four-stars"></a></li>
+                                <li><a href="#"
+                                  class="five-stars"></a></li>
+                              </ul>
+                          </div>
+                        </div>
+                        <p><%= t "view.book.content_review" %></p>
+                        <footer>
+                          <a href="#"><%= t "view.book.reply" %></a>
+                        </footer>
+                      </div>
+                      <!-- replay box -->
+                      <div class="comments-block replay-box">
+                        <div class="heading">
+                          <div class="alignright">
+                            <time><%= t "view.book.time_review" %></time>
+                          </div>
+                          <div class="alignleft">
+                            <h3 class="author">
+                            <%= t "view.book.username_comment" %></h3>
+                            <!-- star rating -->
+                            <ul class="star-rating star-rating1">
+                              <li><a href="#" class="two-stars"></a>
+                              </li>
+                              <li><a href="#" class="three-stars"></a></li>
+                              <li class="active"><a href="#"
+                                class="four-stars"></a></li>
+                              <li><a href="#" class="five-stars"></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <p><%= t "view.book.content_review" %></p>
+                        <footer>
+                          <a href="#"><%= t "view.book.reply" %></a>
+                        </footer>
+                      </div>
+                      <!-- comments-form -->
+                      <div class="form-holder">
+                        <div class="form-frame">
+                          <form class="form" action="#">
+                            <fieldset>
+                              <h3><%= t "view.book.write_review" %></h3>
+                              <input type="text" class="textlarge"
+                                value="<%= t "view.book.your_name" %>" />
+                              <textarea class="textarea" name="" id=""
+                                cols="30" rows="10">
+                                <%= t "view.book.your_review" %>
+                              </textarea>
+                              <div class="info-box">
+                                <button class="more">
+                                  <%= t "view.book.continue" %></button>
+                              </div>
+                            </fieldset>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= render "static_pages/featured" %>
+        </div>
+        <!-- aside -->
+        <%= render "static_pages/aside" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,21 +1,64 @@
-<% provide :title, t("view.user.edit_user") %>
+<% provide :title, t("view.user.profile") %>
 <% provide :button_text, t("view.user.save_changes") %>
-<h1><%= t "view.user.update_profile" %></h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render "form" %>
-
-    <div class="gravatar_edit">
-      <h1>
-        <% if @user.avatar? %>
-          <%= image_tag @user.avatar.url, class: "gravatar", size: Settings.size_avatar %>
-      </h1>
-        <% else %>
-      <h1>
-        <%= gravatar_for @user %>
-      </h1>
-        <% end %>
+<div id="main">
+  <div class="main-holder">
+    <div class="main-frame">
+      <div class="panel-holder">
+        <div class="panel">
+          <ul class="breadcrumbs">
+          </ul>
+        </div>
+      </div>
+      <div id="content-profile">
+        <!-- content -->
+        <div class="content-profile">
+          <div class="box">
+            <h2><%= t "view.user.profile" %></h2>
+            <div class="holder">
+              <div class="frame-box">
+                <div class="container">
+                  <!-- description -->
+                  <div class="descript-profile">
+                    <div class="info-panel">
+                      <div class="tabs-area">
+                        <div class="tab-content" id="tab-1">
+                          <div class="container">
+                            <div id="wrapper-profile" class="form-signup-edit">
+                              <div id="login" class="animate form">
+                                <h1><%= t "view.user.update_profile" %></h1>
+                                <% flash.each do |message_type, message| %>
+                                  <div class="alert alert-<%= message_type %>">
+                                    <%= message %>
+                                  </div>
+                                <% end %>
+                                <div class="row">
+                                  <div class="col-md-6 col-md-offset-3">
+                                    <%= render "form" %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel">
+                        <div id="gallery">
+                          <div id="panel">
+                            <div class="gravatar_edit">
+                              <%= gravatar_for @user %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render "users/profile_menu" %>
+      </div>
     </div>
   </div>
 </div>

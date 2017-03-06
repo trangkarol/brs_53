@@ -1,0 +1,42 @@
+<div id="main">
+  <div class="main-holder">
+    <div class="main-frame">
+      <div class="panel-holder">
+        <div class="panel">
+          <ul class="breadcrumbs">
+            <li><a href="#"><%= t "view.book.home" %></a></li>
+            <li><a href="#"><%= t "view.book.all_book" %></a></li>
+            <li><%= t "view.book.title" %></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <div class="content">
+          <div class="box">
+              <h2><%= t "view.user.all_book"%></h2>
+              <div class="holder">
+                <div class="frame-box">
+                  <div class="blocks-holder">
+                    <div class="block">
+                      <figure>
+                        <%= image_tag "1.jpg", class: "image-book" %>
+                        <h3><%= link_to t("view.featured.title_book"), "#" %></h3>
+                        <span class="price"><%= t "view.book.button_like" %>
+                        </span>
+                      </figure>
+                      <div class="btns-holder">
+                        <%= link_to t("view.book.button_like"), "#", class: "add" %>
+                        <%= link_to t("user.featured.detail"), "#", class: "add" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <%= render "static_pages/featured" %>
+        </div>
+        <%= render "static_pages/aside" %>
+      </div>
+    </div>
+  </div>
+</div>

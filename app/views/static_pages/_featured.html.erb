@@ -1,0 +1,26 @@
+<div class="box">
+  <h2><%= t "view.featured.new_book" %></h2>
+  <div class="holder">
+    <div class="frame-box">
+      <div class="carousel G4">
+        <div class="frame">
+          <ul class="bloks-holder">
+            <li>
+              <div class="block">
+                <figure>
+                  <%= image_tag "img3.jpg" %>
+                  <h3></h3>
+                  <span class="price"> <%= t "view.featured.like" %></span>
+                </figure>
+                <div class="btns-holder">
+                  <%= link_to t("view.featured.review"), "#", class: "add" %>
+                  <%= link_to t("view.featured.detail"), "#", class: "detail" %>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
