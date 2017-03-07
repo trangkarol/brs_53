@@ -23,7 +23,6 @@
       <% @title_form = :title_update  %>
       <%= render "form" %>
     </div>
-
     <%= link_to "" , admin_book_path(book), method: :delete,
       data: {confirm: t("view.admin.confirm_delete")},
       class: "glyphicon glyphicon-remove"%>

@@ -1,0 +1,73 @@
+<aside id="sidebar">
+  <div class="box">
+    <!-- category box -->
+    <h2><%= t "view.aside.bookshelf" %></h2>
+    <div class="holder">
+      <div class="frame-box">
+        <!-- accordion -->
+        <ul class="accordion">
+          <li>
+            <a href="#" class="opener"><span><%= t "view.aside.science" %></span></a>
+            <div class="slide">
+              <ul>
+                <li><a href="catalog.html"><%= t "view.aside.new_category" %></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="opener"><span><%= t "view.aside.romance" %></span></a>
+            <div class="slide">
+              <ul>
+                <li><a href="catalog.html"><%= t "view.aside.new_category" %></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="opener"><span><%= t "view.aside.history" %></span></a>
+            <div class="slide">
+              <ul>
+                <li><a href="catalog.html"><%= t "view.aside.new_category" %></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="opener"><span><%= t "view.aside.social" %></span></a>
+            <div class="slide">
+              <ul>
+                <li><a href="catalog.html"><%= t "view.aside.new_category" %></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="opener"><span><%= t "view.aside.natural" %></span></a>
+            <div class="slide">
+              <ul>
+              <li><a href="catalog.html"><%= t "view.aside.new_category" %></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="opener"><span><%= t "view.aside.other" %></span></a>
+            <div class="slide">
+              <ul>
+              <li><a href="catalog.html"><%= t "view.aside.new_category" %></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- banner -->
+  <%= image_tag "banner.jpg", class: "img-banner" %>
+  <div class="box">
+    <h2><%= t "view.aside.popular_tag" %></h2>
+    <div class="holder">
+      <div class="frame-box">
+        <ul class="tags-cloud">
+          <li><a href="#"><%= t "view.aside.new_category" %></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</aside>

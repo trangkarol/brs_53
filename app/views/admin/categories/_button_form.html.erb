@@ -9,7 +9,6 @@
         <%= form_for [:admin, @category] do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control"   %>
-
           <%= f.submit yield(@button_name), class: "btn btn-primary" %>
         <% end %>
       </p>
@@ -19,5 +18,4 @@
         <%= t "admin.close"%></button>
     </div>
   </div>
-
 </div>

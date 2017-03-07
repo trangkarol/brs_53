@@ -1,0 +1,240 @@
+.container-form{
+  text-align: left;
+  color: red;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+  font-family: "Trebuchet MS", "Myriad Pro", Arial,sans-serif;
+}
+.btn-primary{
+  margin-top: 50px;
+  background-color: #337ab7;
+}
+/** fonts used for the icons **/
+@font-face {
+  font-family: 'FontomasCustomRegular';
+  src: url('fonts/fontomas-webfont.eot');
+  src: url('fonts/fontomas-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/fontomas-webfont.woff') format('woff'),
+    url('fonts/fontomas-webfont.ttf') format('truetype'),
+    url('fonts/fontomas-webfont.svg#FontomasCustomRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FranchiseRegular';
+  src: url('fonts/franchise-bold-webfont.eot');
+  src: url('fonts/franchise-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/franchise-bold-webfont.woff') format('woff'),
+    url('fonts/franchise-bold-webfont.ttf') format('truetype'),
+    url('fonts/franchise-bold-webfont.svg#FranchiseRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+a.hiddenanchor{
+  display: none;
+}
+/** The wrapper that will contain our two forms **/
+#wrapper-form{
+
+  margin-top: 50px !important;
+  right: 0px;
+  min-height: 560px;
+  margin:  auto;
+  width: 500px;
+  position: relative;
+}
+/**** Styling the form elements **/
+#wrapper-form a{
+  color: rgb(95, 155, 198);
+  text-decoration: underline;
+}
+#wrapper-form h1{
+  font-size: 30px;
+  color: rgb(6, 106, 117);
+  padding: 2px 0 10px 0;
+  font-family: 'FranchiseRegular', 'Arial Narrow', Arial,sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+/** For the moment only webkit supports the background-clip:text; */
+#wrapper-form h1{
+  background: -webkit-repeating-linear-gradient(-45deg,
+  rgb(18, 83, 93) ,
+  rgb(18, 83, 93) 20px,
+  rgb(64, 111, 118) 20px,
+  rgb(64, 111, 118) 40px,
+  rgb(18, 83, 93) 40px);
+  -webkit-background-clip: text;
+}
+#wrapper-form h1:after{
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 10px;
+  background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,184,189,0)), color-stop(20%,rgba(147,184,189,0.8)), color-stop(53%,rgba(147,184,189,1)), color-stop(79%,rgba(147,184,189,0.8)), color-stop(100%,rgba(147,184,189,0)));
+  background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+  background: -o-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+  background: -ms-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+  background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+}
+#wrapper-form p{
+  margin-bottom:15px;
+}
+#wrapper-form p:first-child{
+  margin: 0px;
+}
+#wrapper-form label{
+  margin-left: -90px;
+  margin-top: 10px;
+  color: rgb(64, 92, 96);
+  position: relative;
+}
+/**** advanced input styling ****/
+::-webkit-input-placeholder  {
+  color: rgb(190, 188, 188);
+  font-style: italic;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder{
+  color: rgb(190, 188, 188);
+  font-style: italic;
+}
+input {
+  outline: none;
+}
+/* all the input except submit and checkbox */
+#wrapper-form input:not([type="checkbox"]){
+  width: 323px;
+  margin-left: -92px;
+  margin-top: 10px;
+  padding: 10px 5px 10px 32px;
+  border: 1px solid rgb(178, 178, 178);
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing : content-box;
+  box-sizing : content-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+#register,
+#login{
+  position: absolute;
+  top: 0px;
+  width: 88%;
+  padding: 18px 6% 60px 6%;
+  margin: 0 0 35px 0;
+  background: rgb(247, 247, 247);
+  border: 1px solid rgba(147, 184, 189,0.8);
+  -webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),  0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+  -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),  0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+  box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),  0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+  -webkit-box-shadow: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.form-signup-edit{
+  margin-bottom: 300px !important;
+}
+.form-login{
+  margin-bottom: 160px !important;
+}
+/*profile*/
+#wrapper-profile{
+  width: 60%;
+  right: 0px;
+  min-height: 560px;
+  margin:  auto;
+  width: 500px;
+  position: relative;
+}
+#wrapper-profile a{
+  color: rgb(95, 155, 198);
+  text-decoration: underline;
+}
+#wrapper-profile h1{
+  font-size: 30px;
+  color: rgb(6, 106, 117);
+  padding: 2px 0 10px 0;
+  font-family: 'FranchiseRegular', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+#wrapper-profile h1{
+  background: -webkit-repeating-linear-gradient(-45deg,
+  rgb(18, 83, 93) ,
+  rgb(18, 83, 93) 20px,
+  rgb(64, 111, 118) 20px,
+  rgb(64, 111, 118) 40px,
+  rgb(18, 83, 93) 40px);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+#wrapper-profile h1:after{
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 10px;
+  background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,184,189,0)), color-stop(20%,rgba(147,184,189,0.8)), color-stop(53%,rgba(147,184,189,1)), color-stop(79%,rgba(147,184,189,0.8)), color-stop(100%,rgba(147,184,189,0)));
+  background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+  background: -o-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+  background: -ms-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+  background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+}
+#wrapper-profile p{
+  margin-bottom:15px;
+}
+#wrapper-profile p:first-child{
+  margin: 0px;
+}
+#wrapper-profile label{
+  color: rgb(64, 92, 96);
+  position: relative;
+}
+::-webkit-input-placeholder  {
+  color: rgb(190, 188, 188);
+  font-style: italic;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder{
+  color: rgb(190, 188, 188);
+  font-style: italic;
+}
+input {
+  outline: none;
+}
+#wrapper-profile input:not([type="checkbox"]){
+  width: 92%;
+  margin-top: 10px;
+  padding: 10px 5px 10px 32px;
+  border: 1px solid rgb(178, 178, 178);
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing : content-box;
+  box-sizing : content-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+/*end profile*/

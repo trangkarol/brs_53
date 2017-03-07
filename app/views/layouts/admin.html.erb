@@ -12,10 +12,10 @@
   </head>
   <body>
     <%= render "layouts/header_admin" %>
-    <%= render "layouts/menu_admin" %>
-    <div class="container">
+    <div class="container-admin">
+      <%= render "layouts/menu_admin" %>
       <%= yield %>
-      <%= render "layouts/footer" %>
     </div>
+    <%= render "layouts/footer_admin" %>
   </body>
 </html>
