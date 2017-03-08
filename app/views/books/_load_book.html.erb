@@ -1,0 +1,18 @@
+<div class="block">
+  <figure>
+    <%= image_tag book.picture , class: "image-book" %>
+    <h3 class="title-content">
+      <%= link_to book.title, book_path(book), class: "title-book" %></h3>
+    <p class="author-book">
+      <%= t "view.book.author" %><%= book.author %></p>
+    <p class="publish-date ">
+      <%= t "view.book.sum_rating" %><%= book.avg_rate %>
+      <i class="glyphicon glyphicon-star"></i></p>
+    <p class="publish-date">
+      <%= t "view.book.publish_date" %><%= book.publish_date %></p>
+  </figure>
+  <div class="btns-holder">
+    <%= link_to t("view.book.button_like"), "#", class: "add" %>
+    <%= link_to t("user.featured.detail"), "#", class: "detail" %>
+  </div>
+</div>

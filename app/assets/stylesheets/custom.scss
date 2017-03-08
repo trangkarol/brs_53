@@ -526,7 +526,7 @@ td{
 /* search form*/
 .search {
   float:right;
-  margin: 9px 9px 0 0;
+  margin: 4px 9px 0 0;
 }
 .search .text {
   background: url(bg-form.png) no-repeat;
@@ -543,7 +543,7 @@ td{
 .search .submit {
   background: url(bg-form.png) no-repeat -175px 0;
   width:35px;
-  height: 36px;
+  height: 36px !important;
   border:0;
   text-indent:-9999px;
   overflow:hidden;
@@ -2543,22 +2543,22 @@ font: bold 12px "Trebuchet MS", Arial, Helvetica, sans-serif
   padding: 10px;
 }
 .user-menu {
-    width: 245px; /* Set a width if you like */
-    list-style: none;
-    margin-left: -30px !important;
+  width: 245px; /* Set a width if you like */
+  list-style: none;
+  margin-left: -30px !important;
 }
 .user-menu li {
-    padding: 7px 24px 8px;
-    border-bottom: 1px solid #e8e8e8;
-    display: list-item;
-    text-align: -webkit-match-parent;
+  padding: 7px 24px 8px;
+  border-bottom: 1px solid #e8e8e8;
+  display: list-item;
+  text-align: -webkit-match-parent;
 }
 .user-menu-link:hover{
-   color: white;
+  color: white;
 }
 .user-menu li:hover {
-    color: white !important;
-    background-color: #4CAF50;
+  color: white !important;
+  background-color: #4CAF50;
 }
 .alert-success{
   padding:10px;
@@ -2567,8 +2567,8 @@ font: bold 12px "Trebuchet MS", Arial, Helvetica, sans-serif
   color: #3c763d;
 }
 .list-group-item{
- color: #086A87;
- font-size: 18px;
+  color: #086A87;
+  font-size: 18px;
 }
 .gravatar-edit{
   background: #fff;
@@ -2595,7 +2595,7 @@ font: bold 12px "Trebuchet MS", Arial, Helvetica, sans-serif
   display:block;
 }
 .container {
-    width: 100%;
+  width: 100%;
 }
 .glyphicon-star{
   color: #CCAF14;

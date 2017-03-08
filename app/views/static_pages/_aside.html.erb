@@ -59,14 +59,21 @@
     </div>
   </div>
   <!-- banner -->
-  <%= image_tag "banner.jpg", class: "img-banner" %>
+
   <div class="box">
-    <h2><%= t "view.aside.popular_tag" %></h2>
+    <h2><%= t "search_form" %></h2>
     <div class="holder">
       <div class="frame-box">
-        <ul class="tags-cloud">
-          <li><a href="#"><%= t "view.aside.new_category" %></a></li>
-        </ul>
+        <%= form_tag books_path, class:"form-search-detail", method: :get do %>
+        <label><%= t "key_word" %></label>
+          <%= text_field_tag :input_search, params[:input_search],
+           class: " form-control" %>
+           <label class="label-form"><%= t "find_by" %></label>
+          <%= select_tag :find_by, options_for_select([[t("view.search.title")],
+            [t("view.search.author")], [t("view.search.rating")]]),
+            class: " form-control select-form" %>
+          <%= submit_tag t("search"), name: nil, class: "btn form-control seach-btn" %>
+        <% end %>
       </div>
     </div>
   </div>

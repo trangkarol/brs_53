@@ -41,12 +41,15 @@
                 <%= link_to t("all_book"), books_path %></li>
             </ul>
             <!-- search form -->
-            <form class="search" action="#">
-              <fieldset>
-                <input type="text" class="text" value="Search" />
-                <button type="submit" class="submit"></button>
+            <div class="search">
+              <fieldset class="">
+                <%= form_tag books_path, method: :get, class: "search" do %>
+                  <%= text_field_tag :search, params[:search], class: "text",
+                    placeholder: t("find_all"), autocomplete: "off" %>
+                  <%= submit_tag t("search"), name: nil, class: "submit" %>
+                <% end %>
               </fieldset>
-            </form>
+            </div>
           </div>
         </div>
       </div>

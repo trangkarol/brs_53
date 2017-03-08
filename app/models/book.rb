@@ -16,4 +16,9 @@ class Book < ApplicationRecord
   delegate :name, to: :category, prefix: true
 
   scope :list_newest_desc, -> {order "created_at desc"}
+  scope :search_title, -> search {where "title like ?", "%#{search}%"}
+  scope :search_author, -> search {where "author like ?", "%#{search}%"}
+  scope :search_rating, -> search {where "avg_rate like ?", "%#{search}%"}
+  scope :search_all, -> search {where "title like ? or author like ?
+    or avg_rate like ?", "%#{search}%", "%#{search}%", "%#{search}%"}
 end
