@@ -14,7 +14,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th></th>
+        <th><%= t "view.admin.id" %></th>
         <th><%= t "view.admin.book_title" %></th>
         <th><%= t "view.admin.title_category" %></th>
         <th><%= t "view.admin.introduction" %></th>
@@ -26,8 +26,7 @@
       </tr>
     </thead>
     <tbody>
-     <%= render partial: "load_book", collection: @books, as: :book,
-       locals: {index: "index"} %>
+     <%= render partial: "load_book", collection: @books, as: :book %>
     </tbody>
   </table>
   <%= will_paginate @books %>

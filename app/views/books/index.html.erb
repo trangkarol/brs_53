@@ -17,20 +17,16 @@
               <div class="holder">
                 <div class="frame-box">
                   <div class="blocks-holder">
-                    <div class="block">
-                      <figure>
-                        <%= image_tag "1.jpg", class: "image-book" %>
-                        <h3><%= link_to t("view.featured.title_book"), "#" %></h3>
-                        <span class="price"><%= t "view.book.button_like" %>
-                        </span>
-                      </figure>
-                      <div class="btns-holder">
-                        <%= link_to t("view.book.button_like"), "#", class: "add" %>
-                        <%= link_to t("user.featured.detail"), "#", class: "add" %>
-                      </div>
+                  <% if @books.present? %>
+                    <%= render partial: "load_book", collection: @books, as: :book %>
+                  <% else %>
+                    <div class= "search-alert">
+                      <p><%= t "search_alert" %><h3><%= params[:search] %></h3></p>
                     </div>
+                  <% end%>
                   </div>
                 </div>
+                <%= will_paginate @books %>
               </div>
             </div>
           <%= render "static_pages/featured" %>
