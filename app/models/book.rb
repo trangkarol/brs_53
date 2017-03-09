@@ -3,12 +3,14 @@ class Book < ApplicationRecord
 
   has_many :marks
   has_many :reviews, dependent: :destroy
+  has_many :like_activities
 
   mount_uploader :picture, PictureUploader
 
   validates :author, presence: true
   validates :picture, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true,
+    length: {maximum: Settings.maximum_introduction}
   validates :title, presence: true,
     length: {maximum: Settings.maximum_name_email}
   validates :publish_date, presence: true

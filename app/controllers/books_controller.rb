@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :load_book, only: :show
   def index
     @categories = Category.all
     @books = Book.list_newest_desc.paginate page: params[:page],
@@ -19,5 +20,19 @@ class BooksController < ApplicationController
           paginate page: params[:page], per_page: Settings.per_page_book
       end
     end
+  end
+
+  def show
+    @reviews = @book.reviews.list_newest_desc.paginate page: params[:page],
+      per_page: Settings.per_page_review
+    @review = Review.new
+  end
+
+  private
+  def load_book
+    @book = Book.find_by id: params[:id]
+    return if @book
+    flash[:danger] = t "view.review.not_found"
+    redirect_to root_path
   end
 end

@@ -5,7 +5,6 @@
     <title><%= yield(:title) %> <%= t "title_page" %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <%= render "layouts/shim"%>
   </head>
   <body>
@@ -13,7 +12,8 @@
     <div class="container">
       <%= yield %>
       <%= render "static_pages/footer" %>
-       <%= debug(params) if Rails.env.development? %>
+      <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

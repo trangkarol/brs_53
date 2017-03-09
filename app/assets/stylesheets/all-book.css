@@ -1,6 +1,6 @@
 .image-book{
-  width: 203px;
-  height: 240px;
+  width: 233px;
+  height: 251px;
 }
 .text-area{
   background: url(bg-textarea.gif) repeat-x 0 -1px;
@@ -29,7 +29,7 @@
 .introduction {
   height: 30px;
 }
-.author-book {
+.book-author {
   color: #1b1919 ;
   font-weight: bold;
   overflow: hidden;
@@ -83,3 +83,66 @@ $gray-medium-light: #eaeaea;
   background-color: #337ab7 !important;
   color: white !important;
 }
+.author {
+  margin-top: 4px !important;
+  color: #365899 !important;
+  font-weight: bold !important;
+  font-size: 15px !important;
+}
+.btn-edit {
+  width: 82px;
+  background-color: #006e99;
+  color: white;
+  margin-right: 5px;
+}
+.button-review {
+  color: white;
+  width: 130px;
+  background-color: #006e99;
+  color: white;
+  margin-right: 19px;
+  float: right;
+  height: 30px !important;
+  margin-top: -1px;
+  border-radius: 4px;
+}
+.button-review:hover {
+  color: white !important;
+
+}
+.book-rate {
+  font-size: 22px !important;
+  margin-left: 5px;
+}
+.rating-display {
+  margin-left: -40px;
+}
+.no-star{
+  float: right;
+  margin-right: 105px !important;
+}
+.no-star-detail {
+  float: right;
+  margin-right: 216px !important;
+}
+.ul-publish-date{
+  margin-top: 19px;
+  margin-left: -40px;
+}
+.list-group {
+  margin-bottom: 0 !important;
+  list-style:none;
+}
+.content-review{
+  margin-left: 89px;
+  border: 5px;
+  border-color: #d6d6e4;
+  border-width: 1px;
+  border-style: solid;
+  height: 40%;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: #efefef;
+}
+.edit_review {display: none}

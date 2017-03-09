@@ -2,14 +2,25 @@
   <figure>
     <%= image_tag book.picture , class: "image-book" %>
     <h3 class="title-content">
-      <%= link_to book.title, book_path(book), class: "title-book" %></h3>
-    <p class="author-book">
-      <%= t "view.book.author" %><%= book.author %></p>
-    <p class="publish-date ">
-      <%= t "view.book.sum_rating" %><%= book.avg_rate %>
-      <i class="glyphicon glyphicon-star"></i></p>
-    <p class="publish-date">
-      <%= t "view.book.publish_date" %><%= book.publish_date %></p>
+      <%= link_to book.title, book_path(book), class: "title-book" %>
+    </h3>
+    <ul class="list-group">
+      <li>
+        <%= t "view.book.author" %>
+        <i class="book-author"><%= book.author %></i>
+      </li>
+    </ul>
+    <ul class="list-group">
+      <%= t "view.book.sum_rating" %>
+      <% if book.avg_rate? %>
+        <%= display_rate book.avg_rate %>
+      <% else %>
+        <%= image_tag "no_star.png", class: "no-star" %>
+      <% end %>
+   </ul>
+    <div class="publish-date">
+      <ul class="ul-publish-date"><%= t "view.book.publish_date" %>
+      <%= l book.publish_date, format: Settings.date %></ul></div>
   </figure>
   <div class="btns-holder">
     <%= link_to t("view.book.button_like"), "#", class: "add" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307125738) do
+ActiveRecord::Schema.define(version: 20170309084740) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20170307125738) do
     t.string   "introduction"
     t.integer  "category_id"
     t.string   "author"
-    t.date     "publish_date"
+    t.datetime "publish_date"
     t.integer  "page_number"
     t.string   "picture"
-    t.decimal  "created_at",   null: false
+    t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.float  "avg_rate"
+    t.float    "avg_rate"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
@@ -93,10 +93,11 @@ ActiveRecord::Schema.define(version: 20170307125738) do
     t.integer  "user_id"
     t.string   "title"
     t.integer  "category_id"
-    t.integer  "status",      default: 0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "visible",     default: true
+    t.integer  "status",      default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["category_id"], name: "index_requests_on_category_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -105,8 +106,7 @@ ActiveRecord::Schema.define(version: 20170307125738) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_reviews_on_book_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.integer  "rate_score"
   end
 
   create_table "users", force: :cascade do |t|
