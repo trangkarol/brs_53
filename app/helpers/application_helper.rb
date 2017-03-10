@@ -25,4 +25,13 @@ module ApplicationHelper
     end
   end
 
+  def display_rate rate
+    count = Settings.init_count
+    html_star = ""
+    while count < rate.to_i
+      html_star << Settings.star_rate_html
+      count += Settings.asc_value_star
+    end
+    render html: html_star.html_safe
+  end
 end

@@ -1,0 +1,50 @@
+<div class="comments-block">
+  <div class="heading">
+    <div class="alignright">
+      <time>
+        <%= t "view.book.time_review" %>
+        <%= time_ago_in_words(review.created_at) %>
+        <%= t "view.book.ago" %>
+      </time>
+    </div>
+    <!-- coment review -->
+    <div class="d-block">
+      <div class="avatar d-inline-block">
+        <%= image_tag review.user.avatar %>
+        <%= display_rate review.rate_score %>
+      </div>
+      <div class="alignleft d-inline-block">
+        <h3 class="author">
+          <%= review.user.name %>
+        </h3>
+      </div>
+    </div>
+    <div class="content-review"><%= review.content %></div>
+  </div>
+  <footer>
+    <% if current_user?(review.user) && logged_in? %>
+      <%= link_to t("view.review.delete"), review, method: :delete,
+        data: {confirm: t("view.admin.confirm_delete")} %>
+      <a href="#" id="<%= review.id %>" class="click-edit" >
+        <%= t "view.review.edit"  %>
+      </a>
+      <a href="#"><%= t "view.book.reply" %></a>
+      <%= form_for review, method: :patch do |f| %>
+        <%= render "shared/error_messages",
+          object: f.object %>
+        <div class="field">
+          <%= f.text_area :content, placeholder: t("view.review.holder"),
+            required: true, class: "text-area" %>
+        </div>
+        <%= f.label t("view.review.vote") %>
+        <%= f.select :rate_score,
+          options_for_select([Settings.one_star, Settings.two_star,
+          Settings.three_star, Settings.four_star, Settings.five_star]),
+          class: "form-control" %>
+        <input type="hidden" name="review[book_id]" value="<%= @book.id%>">
+        <i class= "glyphicon glyphicon-star"></i>
+        <%= f.submit t("view.review.save"), class: "btn btn-edit" %>
+      <% end %>
+    <% end %>
+  </footer>
+</div>

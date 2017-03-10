@@ -1,8 +1,7 @@
+<%= provide :title, t("view.book.detail") %>
 <div id="main">
-  <!-- main-content -->
   <div class="main-holder">
     <div class="main-frame">
-      <!-- breadcrumbs and social icons -->
       <div class="panel-holder">
         <div class="panel">
           <ul class="breadcrumbs">
@@ -13,64 +12,63 @@
         </div>
       </div>
       <div id="content">
-        <!-- content -->
         <div class="content">
           <div class="box">
-            <h2><%= t "view.book.title" %></h2>
+            <h2><%= t "view.book.detail" %> </h2>
             <span class="top-new big-top"></span>
             <div class="holder">
               <div class="frame-box">
                 <div class="container">
-                  <!-- description -->
+                  <div class="carousel">
+                    <div id="gallery">
+                      <div id="panel">
+                        <%= image_tag @book.picture, id: "large-image" %>
+                      </div>
+                    </div>
+                  </div>
                   <div class="description-box">
-                    <h3><%= t "view.book.title" %></h3>
+                    <h3><%= @book.title %></h3>
                     <div class="info-panel">
-                      <!-- star rating -->
-                      <ul class="star-rating">
+                      <ul class="rating-display">
                         <li>
-                          <a href="#" class="one-star"></a>
+                          <%= t "view.book.sum_rating" %>
+                          <% if @book.avg_rate? %>
+                            <%= display_rate @book.avg_rate %>
+                          <% else %>
+                            <%= image_tag "no_star.png", class: "no-star-detail" %>
+                          <% end %>
                         </li>
-                        <li>
-                          <a href="#" class="two-stars"></a>
-                        </li>
-                        <li><a href="#" class="three-stars"></a></li>
-                        <li class="active"><a href="#"
-                          class="four-stars"></a></li>
-                        <li><a href="#" class="five-stars"></a></li>
                       </ul>
                       <ul class="reviews">
                         <li>
-                          <a href="#"><%= t "view.book.count_review" %></a>
+                          <%= t "view.book.count_review" %>
+                          <%= @book.reviews.size %>
                         </li>
                       </ul>
                     </div>
                     <div class="info-panel">
-                      <span class="like"><%= t "view.book.count_like" %></span>
+                      <ul class="list-group">
+                      <li><%= t "view.book.author" %>
+                        <%= @book.author %></li>
+                      <li><%= t "view.book.publish_date" %>
+                        <%= l @book.publish_date, format: Settings.date %></li>
+                    </div>
+                    <div class="info-panel">
+                      <span class="like"></span>
                       <form class="form" action="#">
                         <fieldset>
                           <button class="more sub-more wishlist">
                           <%= t "view.book.button_like" %></button>
+                          <a href="#" class="more add-more "><span>
+                            <%= t "view.book.add_bookmark" %></span></a>
                         </fieldset>
                       </form>
                     </div>
                     <div class="text-holder">
                       <p><%= t "view.book.introduction" %> </p>
                       <ul>
-                        <li><%= t "view.book.introduction" %></li>
-                        <li class="colored"><%= t "view.book.introduction" %></li>
+                        <li class="colored"><%= @book.introduction %></li>
                       </ul>
-                      <div class="btns-area">
-                        <a href="#" class="more add-more "><span>
-                          <%= t "view.book.add_bookmark" %></span></a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- carousel -->
-                  <div class="carousel">
-                    <div id="gallery">
-                      <div id="panel">
-                        <%= image_tag "banner.jpg", id: "lage-image" %>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -79,52 +77,31 @@
                   <div class="tabs-area">
                     <ul class="tabset">
                       <li><a href="#tab-1" class="tab">
-                        <%= t "view.book.description_tab" %></a></li>
+                       <%= t "view.book.introduction" %></a></li>
                       <li>
-                        <a href="#tab-2" class="tab active">
+                        <a href="#tab-2" class="tab  active">
                           <%= t "view.book.review_tab" %>
-                            <span><%= t "view.book.count_review" %></span>
+                          <%= t "view.book.open_bracket"%>
+                          <span> <%= @book.reviews.size %></span>
+                          <%= t "view.book.close_bracket"%>
                         </a>
                       </li>
                     </ul>
-                    <!-- content desctipt -->
+                     <!-- content descript -->
                     <div class="tab-content" id="tab-1">
-                      <p><%= t "view.book.description_tab" %></p>
-                      <h3><%= t "view.book.description_tab" %></h3>
-                      <ul class="features-list">
-                        <li class="colored">
-                          <%= t "view.book.description_tab" %></li>
-                      </ul>
+                      <p><%= @book.introduction %></p>
                     </div>
-                    <!-- content review -->
                     <div class="tab-content" id="tab-2">
-                      <div class="comments-block">
-                        <div class="heading">
-                          <div class="alignright">
-                            <time><%= t "view.book.time_review" %></time>
-                          </div>
-                          <!-- coment review -->
-                          <div class="alignleft">
-                            <h3 class="author">
-                              <%= t "view.book.username_review" %>
-                            </h3>
-                            <!-- star rating -->
-                              <ul class="star-rating star-rating1">
-                                <li><a href="#" class="two-stars"></a>
-                                </li>
-                                <li><a href="#" class="three-stars"></a></li>
-                                <li class="active"><a href="#"
-                                  class="four-stars"></a></li>
-                                <li><a href="#"
-                                  class="five-stars"></a></li>
-                              </ul>
-                          </div>
+                      <% flash.each do |message_type, message| %>
+                        <div class="alert alert-<%= message_type %>">
+                          <%= message %>
                         </div>
-                        <p><%= t "view.book.content_review" %></p>
-                        <footer>
-                          <a href="#"><%= t "view.book.reply" %></a>
-                        </footer>
-                      </div>
+                      <% end %>
+                      <% if @reviews %>
+                        <%= render partial: "load_review", collection: @reviews,
+                          as: :review %>
+                      <%= will_paginate @reviews %>
+                      <% end%>
                       <!-- replay box -->
                       <div class="comments-block replay-box">
                         <div class="heading">
@@ -133,16 +110,8 @@
                           </div>
                           <div class="alignleft">
                             <h3 class="author">
-                            <%= t "view.book.username_comment" %></h3>
-                            <!-- star rating -->
-                            <ul class="star-rating star-rating1">
-                              <li><a href="#" class="two-stars"></a>
-                              </li>
-                              <li><a href="#" class="three-stars"></a></li>
-                              <li class="active"><a href="#"
-                                class="four-stars"></a></li>
-                              <li><a href="#" class="five-stars"></a></li>
-                            </ul>
+                            <!--  username comment -->
+                            </h3>
                           </div>
                         </div>
                         <p><%= t "view.book.content_review" %></p>
@@ -150,26 +119,28 @@
                           <a href="#"><%= t "view.book.reply" %></a>
                         </footer>
                       </div>
-                      <!-- comments-form -->
-                      <div class="form-holder">
-                        <div class="form-frame">
-                          <form class="form" action="#">
-                            <fieldset>
-                              <h3><%= t "view.book.write_review" %></h3>
-                              <input type="text" class="textlarge"
-                                value="<%= t "view.book.your_name" %>" />
-                              <textarea class="textarea" name="" id=""
-                                cols="30" rows="10">
-                                <%= t "view.book.your_review" %>
-                              </textarea>
-                              <div class="info-box">
-                                <button class="more">
-                                  <%= t "view.book.continue" %></button>
-                              </div>
-                            </fieldset>
-                          </form>
+                      <% if logged_in? %>
+                        <!-- comments-form -->
+                        <div class="form-holder">
+                          <div class="form-frame">
+                            <%= form_for @review do |f| %>
+                              <%= render "shared/error_messages", object: f.object %>
+                              <%= f.text_area :content, class: "text-area" %>
+                              <%= f.label t("view.review.vote") %>
+                              <%= f.select :rate_score,
+                                options_for_select([Settings.one_star,
+                                Settings.two_star, Settings.three_star,
+                                Settings.four_star, Settings.five_star]),
+                                class: "form-control" %>
+                              <input type="hidden" name="review[book_id]"
+                                value="<%= @book.id %>">
+                              <i class= "glyphicon glyphicon-star"></i>
+                              <%= f.submit t("view.review.btn_post"),
+                                class: "button-review" %>
+                            <% end %>
+                          </div>
                         </div>
-                      </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -178,7 +149,6 @@
           </div>
           <%= render "static_pages/featured" %>
         </div>
-        <!-- aside -->
         <%= render "static_pages/aside" %>
       </div>
     </div>

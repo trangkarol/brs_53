@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :books
+  resources :reviews
 
   namespace :admin do
     root "admin#index"
