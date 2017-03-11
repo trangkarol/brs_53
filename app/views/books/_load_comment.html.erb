@@ -1,0 +1,42 @@
+<% if comment.review_id == review.id %>
+  <div  class="comments-block replay-box">
+    <div class="heading">
+      <div class="alignleft">
+        <time><%= t "view.comment.time_comment" %>
+          <%= time_ago_in_words(comment.created_at) %>
+          <%= t "view.book.ago" %></time>
+      </div>
+      <div class="d-block comment">
+        <div class="alignright d-inline-block">
+          <h3 class="author-comment">
+            <%= comment.user.name %>
+          </h3>
+        </div>
+         <div class="avatar-comment d-inline-block">
+          <%= image_tag comment.user.avatar %>
+        </div>
+      </div>
+    </div>
+    <div class="content-comment"><%= comment.content %></div>
+    <footer>
+      <% if current_user? comment.user %>
+        <%= link_to t("view.review.delete"), comment, method: :delete,
+          data: {confirm: t("view.admin.confirm_delete")} %>
+        <%= link_to t("view.review.edit"), "#", id: comment.id,
+          class: "click-edit-comment" %>
+        <%= form_for comment do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="field text-comment">
+            <%= f.text_area :content, required: true, placeholder:
+              t("view.comment.placeholder"), autocomplete: "off",
+              class: "text-area-comment" %>
+          </div>
+          <input type="hidden" name="comment[book_id]" value="<%= @book.id %>">
+          <input type="hidden" name="comment[review_id]" value="<%= review.id %>">
+          <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+          <%= f.submit t("view.review.save"), class: "btn btn-edit" %>
+        <% end %>
+      <% end %>
+    </footer>
+  </div>
+<% end %>

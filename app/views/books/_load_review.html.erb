@@ -7,7 +7,6 @@
         <%= t "view.book.ago" %>
       </time>
     </div>
-    <!-- coment review -->
     <div class="d-block">
       <div class="avatar d-inline-block">
         <%= image_tag review.user.avatar %>
@@ -22,29 +21,54 @@
     <div class="content-review"><%= review.content %></div>
   </div>
   <footer>
-    <% if current_user?(review.user) && logged_in? %>
-      <%= link_to t("view.review.delete"), review, method: :delete,
-        data: {confirm: t("view.admin.confirm_delete")} %>
-      <a href="#" id="<%= review.id %>" class="click-edit" >
-        <%= t "view.review.edit"  %>
+    <a href="#" id="<%= review.id %>" class="click-show" >
+      <%= t "view.comment.show" %> <%= t "view.book.open_bracket" %>
+      <%= review.comments.size %> <%= t "view.book.close_bracket" %>
+    </a>
+    <% if logged_in? %>
+      <a href="#" id="<%= review.id %>" class="click-reply" >
+        <%= t "view.book.reply" %>
       </a>
-      <a href="#"><%= t "view.book.reply" %></a>
+      <!--edit and delete comment -->
+      <% if current_user? review.user %>
+        <%= link_to t("view.review.delete"), review, method: :delete,
+          data: {confirm: t("view.admin.confirm_delete")} %>
+        <%= link_to t("view.review.edit"), "#", id: review.id,
+          class: "click-edit" %>
+      <% end %>
+      <!-- form comment post -->
+      <%= form_for @comment, html: {id: "new_comment_#{review.id}"} do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="field text-comment">
+          <%= f.text_area :content, required: true, placeholder:
+            t("view.comment.placeholder"), autocomplete: "off", class: "text-area" %>
+        </div>
+        <input type="hidden" name="comment[book_id]" value="<%= @book.id %>">
+        <input type="hidden" name="comment[review_id]" value="<%= review.id %>">
+        <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+        <%= f.submit t("view.review.btn_post"), class: "btn btn-edit" %>
+      <% end %>
+      <!-- form review edit -->
       <%= form_for review, method: :patch do |f| %>
-        <%= render "shared/error_messages",
-          object: f.object %>
+        <%= render "shared/error_messages", object: f.object %>
         <div class="field">
           <%= f.text_area :content, placeholder: t("view.review.holder"),
             required: true, class: "text-area" %>
         </div>
         <%= f.label t("view.review.vote") %>
-        <%= f.select :rate_score,
-          options_for_select([Settings.one_star, Settings.two_star,
-          Settings.three_star, Settings.four_star, Settings.five_star]),
-          class: "form-control" %>
-        <input type="hidden" name="review[book_id]" value="<%= @book.id%>">
+        <%= f.select :rate_score, options_for_select([Settings.one_star,
+          Settings.two_star, Settings.three_star, Settings.four_star,
+          Settings.five_star]), class: "form-control" %>
+        <input type="hidden" name="review[book_id]" value="<%= @book.id %>">
         <i class= "glyphicon glyphicon-star"></i>
         <%= f.submit t("view.review.save"), class: "btn btn-edit" %>
       <% end %>
     <% end %>
   </footer>
+  <% if @comments %>
+    <div id="reply-box-<%= review.id %>" class="reply-box">
+      <%= render partial: "load_comment", collection: @comments, as: :comment,
+        locals: {review: review} %>
+    </div>
+  <% end %>
 </div>

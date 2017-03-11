@@ -3,11 +3,11 @@
   height: 251px;
 }
 .text-area{
-  background: url(bg-textarea.gif) repeat-x 0 -1px;
+  background: #fff;
   border: 1px solid #abbbc2;
   border-radius: 6px;
   position: relative;
-  height: 204px !important;
+  height: 85px !important;
   width: 700px !important;
   margin: 0 0 15px;
   padding: 10px;
@@ -79,7 +79,7 @@ $gray-medium-light: #eaeaea;
   margin-top: 5px;
 }
 .seach-btn {
-  margin-top: 5px;
+  margin-top: 28px;
   background-color: #337ab7 !important;
   color: white !important;
 }
@@ -134,15 +134,56 @@ $gray-medium-light: #eaeaea;
   list-style:none;
 }
 .content-review{
+  color: #1d2129;
   margin-left: 89px;
   border: 5px;
-  border-color: #d6d6e4;
-  border-width: 1px;
-  border-style: solid;
-  height: 40%;
   margin-bottom: 20px;
   border-radius: 7px;
   padding: 10px;
-  background-color: #efefef;
+  background-color: #e2f9f6;
 }
 .edit_review {display: none}
+.avatar-comment{
+  float:right;
+}
+.author-comment{
+  color: #365899 !important;
+  font-weight: bold !important;
+  font-size: 15px !important;
+}
+.content-comment{
+  color: #1d2129;
+  margin-bottom: 19px;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #fcfcfc;
+}
+.text-comment{
+  height: 100px;
+}
+.arlert-login{
+  color: #151ba5;
+  font-size: 16px;
+  text-align: center;
+  background: #ebeff2;
+  width: 100%;
+  height: 29px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.frame-box{
+  background-color: #f1f1f3 !important;
+}
+.text-area-comment {
+  background: #fff;
+  border: 1px solid #abbbc2;
+  border-radius: 6px;
+  position: relative;
+  height: 65px !important;
+  width: 600px !important;
+  margin: 0 0 15px;
+  padding: 10px;
+  color: #565656;
+  font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
