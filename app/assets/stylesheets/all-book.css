@@ -187,3 +187,61 @@ $gray-medium-light: #eaeaea;
   color: #565656;
   font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
+.new_mark{
+  display: none;
+  margin-top: 40px;
+  background: rgba(0, 37, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+  color: #363636;
+  border: 1px;
+  border-style: solid;
+  border-color: #93b8bd;
+}
+.reading-label{
+  margin-top: 15px;
+}
+#mark_status_true{
+  width: 245px;
+}
+#mark_status_false{
+  width: 40px;
+  margin-left: 109px;
+  margin-top: 27px;
+}
+.title-label{
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+}
+.img-readed{
+  margin-left: 3px;
+  margin-bottom: 2px;
+}
+.edit_mark{
+  display: none;
+  margin-top: 35px;
+  background: rgba(0, 37, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+  color: #363636;
+  border: 1px;
+  border-style: solid;
+  border-color: #93b8bd;
+}
+.unmark-link{
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: block;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  color: white !important;
+  background: #a94442;
+  width: 131px;
+  text-decoration: none !important;
+}
+.unmark-link:hover{
+  opacity:0.8;
+  background:rgb(169, 66, 78);
+}

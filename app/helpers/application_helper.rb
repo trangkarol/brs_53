@@ -34,4 +34,12 @@ module ApplicationHelper
     end
     render html: html_star.html_safe
   end
+
+  def display_mark mark
+    if mark.status
+      image_tag "reading.png", class: "img-reading"
+    else
+      image_tag "readed.png", class: "img-readed"
+    end
+  end
 end

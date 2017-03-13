@@ -3,7 +3,7 @@ class CreateMarks < ActiveRecord::Migration[5.0]
     create_table :marks do |t|
       t.references :user, foreign_key: true
       t.references :book, foreign_key: true
-      t.integer :status
+      t.boolean :status
 
       t.timestamps
     end

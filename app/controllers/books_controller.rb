@@ -24,6 +24,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @mark = Mark.new
+    @marks = Mark.all
+    @bookmarks = Mark.check_user_book current_user, @book.id
     @review = Review.new
     @comment = Comment.new
     @comments = @book.comments.list_newest_desc
