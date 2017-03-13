@@ -1,0 +1,10 @@
+<%= form_for mark do |f| %>
+  <%= f.label title, class: "title-label" %>
+  <%= f.label t("view.mark.reading"), class: "reading-label" %>
+  <%= f.radio_button :status, true %>
+  <%= f.label t("view.mark.readed"), class: "readed-label" %>
+  <%= f.radio_button :status, false, checked: true %>
+  <input type="hidden" name="mark[book_id]" value="<%= @book.id %>">
+  <input type="hidden" name="mark[user_id]" value="<%= current_user.id %>">
+  <%= f.submit button, class: "btn btn-primary" %>
+<% end %>

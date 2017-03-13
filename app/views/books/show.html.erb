@@ -55,14 +55,33 @@
                     </div>
                     <div class="info-panel">
                       <span class="like"></span>
-                      <form class="form" action="#">
-                        <fieldset>
-                          <button class="more sub-more wishlist">
-                          <%= t "view.book.button_like" %></button>
-                          <a href="#" class="more add-more "><span>
-                            <%= t "view.book.add_bookmark" %></span></a>
-                        </fieldset>
-                      </form>
+                    <% if logged_in? %>
+                      <% if @bookmarks.present? %>
+                        <% @marks.each do |mark| %>
+                          <% if (current_user? mark.user) && (@book.id == mark.
+                            book_id) %>
+                            <div class="status_mark">
+                              <%= display_mark mark %>
+                            </div>
+                            <%= link_to t("view.mark.unmark"), mark_path(mark),
+                              method: :delete, class: "unmark-link " %>
+                            <a href="#" class="more add-more change_mark"
+                              id="<%= mark.id %>">
+                              <span><%= t "view.book.change_bookmark" %></span>
+                            </a>
+                            <%= render partial: "form_mark", locals: {mark: mark,
+                              title: t("view.mark.title_change_mark"),
+                              button: t("view.mark.save")} %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <a href="#" class="more add-more " id="mark-click"><span>
+                          <%= t "view.book.add_bookmark" %></span></a>
+                      <% end %>
+                      <%= render partial: "form_mark", locals: {mark: @mark,
+                        title: t("view.mark.title_form_mark"),
+                        button: t("view.admin.ok")} %>
+                    <% end %>
                     </div>
                     <div class="text-holder">
                       <p><%= t "view.book.introduction" %> </p>
@@ -126,10 +145,10 @@
                             <% end %>
                           </div>
                         </div>
-                        <% else %>
-                          <div class="arlert-login">
-                            <%= t "view.review.alert_login" %>
-                          </div>
+                      <% else %>
+                        <div class="arlert-login">
+                          <%= t "view.review.alert_login" %>
+                        </div>
                       <% end %>
                     </div>
                   </div>

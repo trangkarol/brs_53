@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :books
   resources :reviews
   resources :comments
+  resources :marks
 
   namespace :admin do
     root "admin#index"
