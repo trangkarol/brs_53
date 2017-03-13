@@ -193,7 +193,7 @@
   input:valid, textarea:valid{
   }
   input:invalid, textarea:invalid{
-    background-color:#f0dddd;
+    background-color:#fff;
   }
   table{
     border-collapse:collapse;
@@ -1852,9 +1852,8 @@
   .comments-block {
     border:1px solid #dadada;
     border-radius:6px;
-    behavior: url(css/PIE.html);
     position:relative;
-    background:#f9f9f9;
+    background: #e3e3e3;
     margin: 0 -9px 13px;
     padding: 12px 12px 0;
   }
@@ -1938,7 +1937,8 @@
   }
   /* replay box*/
   .replay-box {
-    margin: 0 -9px 21px 32px;
+    background-color: #f4f8df;
+    margin: 10px -9px 21px 32px;
   }
   /* item description */
   .container {

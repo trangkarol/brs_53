@@ -77,13 +77,13 @@
                   <div class="tabs-area">
                     <ul class="tabset">
                       <li><a href="#tab-1" class="tab">
-                       <%= t "view.book.introduction" %></a></li>
+                        <%= t "view.book.introduction" %></a></li>
                       <li>
                         <a href="#tab-2" class="tab  active">
                           <%= t "view.book.review_tab" %>
-                          <%= t "view.book.open_bracket"%>
-                          <span> <%= @book.reviews.size %></span>
-                          <%= t "view.book.close_bracket"%>
+                          <%= t "view.book.open_bracket" %>
+                          <span><%= @book.reviews.size %></span>
+                          <%= t "view.book.close_bracket" %>
                         </a>
                       </li>
                     </ul>
@@ -101,37 +101,23 @@
                         <%= render partial: "load_review", collection: @reviews,
                           as: :review %>
                       <%= will_paginate @reviews %>
-                      <% end%>
-                      <!-- replay box -->
-                      <div class="comments-block replay-box">
-                        <div class="heading">
-                          <div class="alignright">
-                            <time><%= t "view.book.time_review" %></time>
-                          </div>
-                          <div class="alignleft">
-                            <h3 class="author">
-                            <!--  username comment -->
-                            </h3>
-                          </div>
-                        </div>
-                        <p><%= t "view.book.content_review" %></p>
-                        <footer>
-                          <a href="#"><%= t "view.book.reply" %></a>
-                        </footer>
-                      </div>
+                      <% end %>
                       <% if logged_in? %>
-                        <!-- comments-form -->
+                        <!-- reviews-form -->
                         <div class="form-holder">
                           <div class="form-frame">
+                            <div class="label-review-form">
+                              <%= t "view.review.review_label" %>
+                            </div>
                             <%= form_for @review do |f| %>
                               <%= render "shared/error_messages", object: f.object %>
-                              <%= f.text_area :content, class: "text-area" %>
+                              <%= f.text_area :content, class: "text-area",
+                                required: true %>
                               <%= f.label t("view.review.vote") %>
-                              <%= f.select :rate_score,
-                                options_for_select([Settings.one_star,
-                                Settings.two_star, Settings.three_star,
-                                Settings.four_star, Settings.five_star]),
-                                class: "form-control" %>
+                              <%= f.select :rate_score, options_for_select(
+                                [Settings.one_star, Settings.two_star,
+                                Settings.three_star, Settings.four_star,
+                                Settings.five_star]), class: "form-control" %>
                               <input type="hidden" name="review[book_id]"
                                 value="<%= @book.id %>">
                               <i class= "glyphicon glyphicon-star"></i>
@@ -140,6 +126,10 @@
                             <% end %>
                           </div>
                         </div>
+                        <% else %>
+                          <div class="arlert-login">
+                            <%= t "view.review.alert_login" %>
+                          </div>
                       <% end %>
                     </div>
                   </div>

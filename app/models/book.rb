@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   has_many :marks
   has_many :reviews, dependent: :destroy
   has_many :like_activities
-
+  has_many :comments
   mount_uploader :picture, PictureUploader
 
   validates :author, presence: true

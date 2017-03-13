@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309084740) do
+ActiveRecord::Schema.define(version: 20170310132442) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20170309084740) do
     t.datetime "publish_date"
     t.integer  "page_number"
     t.string   "picture"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.float    "avg_rate"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.float    "avg_rate",     default: 0.0
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20170309084740) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "book_id"
     t.index ["review_id"], name: "index_comments_on_review_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
