@@ -42,4 +42,8 @@ module ApplicationHelper
       image_tag "readed.png", class: "img-readed"
     end
   end
+
+  def load_followed current_user, user
+    current_user.active_relationships.find_by followed_id: user
+  end
 end

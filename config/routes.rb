@@ -10,11 +10,18 @@ Rails.application.routes.draw do
 
   root "books#index"
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :users
   resources :books
   resources :reviews
   resources :comments
   resources :marks
+  resources :relationships, only: [:create, :destroy]
 
   namespace :admin do
     root "admin#index"

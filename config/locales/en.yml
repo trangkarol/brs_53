@@ -43,6 +43,13 @@ en:
       request_manager: "List request"
       edit_user: "Edit user"
       bookmark: "Bookmark"
+      following: "following"
+      followers: "followers"
+      view_profile: "View my profile"
+      following_title: "Following"
+      followers_title: "Followers"
+      follow: "Follow"
+      unfollow: "Unfollow"
     session:
       invalid_email_password: "Invalid email/password "
       aside:
