@@ -245,3 +245,82 @@ $gray-medium-light: #eaeaea;
   opacity:0.8;
   background:rgb(169, 66, 78);
 }
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 10px 0 5px 0px;
+  a {
+    float: left;
+    margin-right: 10px !important ;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+.following-user{
+  margin-right: 10px;
+  color: blue;
+}
+.follower-user{
+  color: blue;
+}
+.follow-btn{
+  background: #337ab7 !important ;
+  text-align: center;
+  padding: 10px !important;
+  width: 50px !important;
+}
+.unfollow-btn{
+  background: #eee !important;
+  text-align: center;
+  padding: 10px !important;
+  width: 70px !important;
+}
+.avatar-user-infor {
+  width: 130px;
+  height: 130px;
+  margin: 32px;
+}
+.user_info {
+  text-align: center;
+  list-style: none;
+  padding: 10px 5px 0 10px ;
+}
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  a {
+    padding: 0;
+  }
+}
+.gravatar {
+  width: 50px;
+  height: 50px;
+  margin: 1px 1px;
+  }
+.users.follow {
+  padding: 0;
+}
+.col-content-follow{
+  border-top: 1px solid;
+  margin-top: 10px;
+  border-color: #e9dbdb;
+  color: #6c6666;
+}
+.users-follow-show{
+  list-style: none;
+}
+.item-user-follow{
+  margin-bottom: 10px;
+}

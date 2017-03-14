@@ -37,6 +37,10 @@
                                     <%= t "view.user.username" %>
                                     <%= @user.name %>
                                   </li>
+                                  <section class="stats">
+                                    <%= render "shared/stats" %>
+                                  </section>
+                                  <%= render "follow_form" if logged_in? %>
                                 </ul>
                                 <div class="row">
                                   <div class="col-md-6 col-md-offset-3">
@@ -51,7 +55,8 @@
                         <div id="gallery">
                           <div id="panel">
                             <div class="gravatar-edit">
-                              <%= gravatar_for @user %>
+                              <%= image_tag @user.avatar,
+                                class: "avatar-user-infor" %>
                             </div>
                           </div>
                         </div>
