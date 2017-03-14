@@ -8,20 +8,20 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  root "books#index"
-
-  resources :users do
-    member do
-      get :following, :followers
-    end
-  end
+  root "activities#index"
 
   resources :users
   resources :books
   resources :reviews
   resources :comments
   resources :marks
+  resources :activities
   resources :relationships, only: [:create, :destroy]
+
+  resources :users do
+    resources :following, only: [:index]
+    resources :followers, only: [:index]
+  end
 
   namespace :admin do
     root "admin#index"

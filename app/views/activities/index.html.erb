@@ -1,0 +1,70 @@
+<div id="wrapper">
+  <div id="main">
+    <div class="main-holder">
+      <div class="main-frame">
+        <div id="content">
+          <div class="content timline-content">
+            <div class="box timeline-box">
+              <h2 class="navbar-timline"><%= t "view.new_feed.title" %></h2>
+              <div class="holder timeline-holder">
+                <div class="frame-box timeline-fram">
+                  <div class="blocks-holder blocks-subholder timeline-subholder">
+                    <% @activities.each do |activity| %>
+                      <div class="timeline-block">
+                        <div class="user-infor">
+                          <div class="avatar-user">
+                            <%= image_tag activity.user.avatar, class: "avatar-newsfeed" %>
+                          </div>
+                          <div class="user-name"><%= link_to activity.user.name,
+                            user_path(activity.user), class: "user-name-link" %>
+                          </div>
+                          <div class="time-create">
+                          </div>
+                        </div>
+                        <div class="content-review-box">
+                          <%= action activity.action_type %>
+
+                          <% case activity.action_type %>
+                          <% when "mark_reading", "mark_readed", "review" %>
+                            <% book = target activity.action_type, activity.
+                              target_id %>
+                            <%= link_to book.title, book_path(book.id) %>
+
+                          <% when "comment" %>
+                            <%= t "view.new_feed.to_review" %>
+                            <% comment = target activity.action_type,
+                              activity.target_id %>
+
+                            <%= link_to comment.review.user_name,
+                              user_path(comment.id) %>
+
+                            <%= t "view.new_feed.at_the"%>
+
+                            <%= link_to comment.book.title,
+                              book_path(comment.book_id) %>
+
+                          <% else %>
+                            <% user_follow = target activity.action_type,
+                              activity.target_id %>
+                            <%= link_to user_follow.name,
+                              user_path(user_follow.id) %>
+                          <% end %>
+                          <%= t "view.new_feed.at" %>
+                          <%= time_ago_in_words(activity.created_at) %>
+                          <%= t "view.new_feed.ago" %>
+                        </div>
+                        <div class="footer-like-box"><a class="btn btn-default like-btn"></a></div>
+                      </div>
+                    <% end %>
+                    <%= will_paginate @books %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= render "static_pages/aside" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

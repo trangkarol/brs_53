@@ -1,10 +1,11 @@
 class MarksController < ApplicationController
   before_action :load_mark, only: [:update, :destroy]
-  after_filter  :activity_create, only: [:create, :update]
 
   def create
     @bookmark = Mark.new bookmark_params
     if @bookmark.save
+      @bookmark.status? ? action_type = "mark_reading" : action_type = "mark_readed"
+      create_activity @bookmark.id, action_type
       flash[:success] = t "view.mark.mark_book_success"
     else
       flash[:danger] = t "view.mark.mark_book_not_success"
@@ -23,6 +24,8 @@ class MarksController < ApplicationController
 
   def destroy
     if @bookmark.destroy
+      @bookmark.status? ? action_type = "mark_reading" : action_type = "mark_readed"
+      destroy_activity @bookmark.id, action_type
       flash[:success] = t "view.mark.unmark_success"
     else
       flash[:warning] = t "view.mark.unmark_not_success"
@@ -31,17 +34,6 @@ class MarksController < ApplicationController
   end
 
   private
-
-  def activity_create
-    if @bookmark.status?
-      @target_type = "mark_reading"
-    else
-      @target_type = "mark_readed"
-    end
-    @activity = Activity.new(user_id: @bookmark.user_id, target_type: @target_type,
-      target_id: @bookmark.id, action_type: "created")
-    @activity.save
-  end
 
   def bookmark_params
     params.require(:mark).permit :status, :user_id, :book_id

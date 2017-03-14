@@ -50,6 +50,8 @@ en:
       followers_title: "Followers"
       follow: "Follow"
       unfollow: "Unfollow"
+      title_follower: "Follower"
+      title_following: "Following"
     session:
       invalid_email_password: "Invalid email/password "
       aside:
@@ -157,6 +159,15 @@ en:
       author: "Author"
       rating: "Rating"
       favorite: "Favorite"
+    new_feed:
+      at: "at"
+      ago: "ago."
+      at_the: "at the"
+      title: "News feed"
+      review: "Review to the"
+      to_review: "to review of"
+      mark_readed: "Mark readed on the"
+      mark_reading: "Mark reading on the"
     admin:
       user: "Users"
       book: "Books"

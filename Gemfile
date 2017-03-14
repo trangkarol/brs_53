@@ -20,7 +20,7 @@ gem "bootstrap-will_paginate", "0.0.10"
 
 group :development, :test do
   gem "sqlite3", "1.3.12"
-  gem "byebug", "9.0.0", platform: :mri
+  gem "pry"
 end
 
 group :development do
