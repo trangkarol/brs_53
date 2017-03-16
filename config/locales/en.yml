@@ -52,6 +52,8 @@ en:
       unfollow: "Unfollow"
       title_follower: "Follower"
       title_following: "Following"
+      mark_history: "History read book"
+      no_bookmark: "You haven't any bookmark"
     session:
       invalid_email_password: "Invalid email/password "
       aside:
@@ -79,6 +81,8 @@ en:
       contact: "Contact"
       copyright: "Copyright"
     mark:
+      time_mark: "Time mark"
+      mark_history: "Readed book history"
       readed: "Readed"
       reading: "Reading"
       save: "Save change"
@@ -159,6 +163,23 @@ en:
       author: "Author"
       rating: "Rating"
       favorite: "Favorite"
+    request:
+      update_success: "Update request success"
+      update_not_success: "Update request not success"
+      cancel_success: "You have successfully canceled"
+      cancel_not_success: "Cancel not success"
+      cancel: "Cancel"
+      save_change: "Save changes"
+      action: "Action"
+      author: "Author"
+      title_book: "Title book"
+      category: "Category"
+      status: "Status"
+      add_request: "Send request"
+      no_request: "You haven't any request"
+      form_request: "Form send request book to admin"
+      send_success: "Send request success"
+      send_not_success: "Send request not success"
     new_feed:
       at: "at"
       ago: "ago."
@@ -229,3 +250,5 @@ en:
       please_login: "Please login to access "
       update_success: "Profile updated"
       not_found_user: "Could not found User"
+      not_found_request: "Could not found request"
+

@@ -1,0 +1,110 @@
+<% provide :title, t("view.user.profile") %>
+<% provide :button_create, t("view.user.send_request") %>
+<% provide :button_edit, t("view.request.save_change") %>
+<div id="main">
+  <div class="main-holder">
+    <div class="main-frame">
+      <div class="panel-holder">
+        <div class="panel">
+          <ul class="breadcrumbs">
+          </ul>
+        </div>
+      </div>
+      <div id="content-profile">
+        <!-- content -->
+        <div class="content-profile">
+          <div class="box">
+            <h2><%= t "view.user.request_manager" %></h2>
+            <div class="holder">
+              <div class="frame-box">
+                <div class="container">
+                  <!-- description -->
+                  <div class="descript-profile">
+                    <div class="content-all-request">
+                      <% flash.each do |message_type, message| %>
+                        <div class="alert alert-<%= message_type %>">
+                          <%= message %>
+                        </div>
+                      <% end %>
+                      <button type="button" class="btn btn-info btn-lg"
+                        data-toggle="modal" data-target="#form-request">
+                        <%= t "view.request.add_request" %></button>
+                      <!-- Modal -->
+                      <div id="form-request" class="modal fade" role="dialog">
+                        <% @button = :button_create %>
+                        <%= render "form" %>
+                      </div>
+                      <% if check_request current_user.id %>
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th>
+                                <%= t "view.request.title_book" %>
+                              </th>
+                              <th>
+                                <%= t "view.request.category" %>
+                              </th>
+                              <th>
+                                <%= t "view.request.time_send" %>
+                              </th>
+                              <th>
+                                <%= t "view.request.author" %>
+                              </th>
+                              <th>
+                                <%= t "view.request.status" %>
+                              </th>
+                              <th class="option-request">
+                                <%= t "view.request.action" %>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% @requests.each do |request| %>
+                              <% if request.user_id == current_user.id %>
+                                <tr>
+                                  <td><%= request.title %></td>
+                                  <td><%= request.category.name %></td>
+                                  <td><%= request.created_at %></td>
+                                  <td><%= request.author %></td>
+                                  <td><%= request.status %></td>
+                                  <td class="option-request">
+                                  <% if request.status? == request.pending? %>
+                                    <a href="" class="glyphicon glyphicon-pencil"
+                                      data-toggle="modal" data-target="#form-edit-request">
+                                    </a>
+                                    <div id="form-edit-request" class="modal fade"
+                                      role="dialog">
+                                      <% @button = :button_edit %>
+                                      <% @request = request %>
+                                      <%= render "form" %>
+                                    </div>
+                                  <% end %>
+                                    <%= link_to "", request_path(request),
+                                      method: :delete,
+                                      title: t("view.request.cancel"),
+                                      data: {confirm: t("view.admin.confirm_delete")},
+                                      class: "glyphicon glyphicon-remove"%>
+                                  </td>
+                                </tr>
+                              <% end %>
+                            <% end %>
+                          </tbody>
+                        </table>
+                        <%= will_paginate @requests %>
+                      <% else %>
+                        <div class="content-request">
+                          <%= t "view.request.no_request" %>
+                        </div>
+                      <% end%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render "users/profile_menu" %>
+      </div>
+    </div>
+  </div>
+</div>

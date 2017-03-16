@@ -1,38 +1,46 @@
 <!-- aside -->
-<aside id="sidebar">
-  <div class="box">
-    <!-- category box -->
-    <h2><%= t "view.user.profile" %></h2>
-    <div class="holder">
-      <div class="frame-box">
-        <!-- accordion -->
-        <ul class="user-menu">
-          <li>
-            <%= link_to t("view.user.profile"), "#",
-              class: "user-menu-link" %>
-          </li>
-          <li>
-            <%= link_to t("view.user.book_like"), "#",
-              class: "user-menu-link" %>
-          </li>
-          <li>
-            <%= link_to t("view.user.request_manager"), "#",
-              class: "user-menu-link" %>
-          </li>
-        </ul>
+<% if logged_in? %>
+  <aside id="sidebar">
+    <div class="box">
+      <!-- category box -->
+      <h2><%= t "view.user.profile" %></h2>
+      <div class="holder">
+        <div class="frame-box">
+          <!-- accordion -->
+          <ul class="user-menu">
+            <li>
+              <%= link_to t("view.user.profile"), "#",
+                class: "user-menu-link" %>
+            </li>
+            <li>
+              <%= link_to t("view.user.book_like"), "#",
+                class: "user-menu-link" %>
+            </li>
+            <li>
+              <%= link_to t("view.user.read_history"), user_marks_path(current_user),
+                class: "user-menu-link" %>
+            </li>
+          <% unless is_admin? %>
+            <li>
+              <%= link_to t("view.user.request_manager"),
+                user_requests_path(current_user), class: "user-menu-link" %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- banner -->
-  <%= image_tag "banner.jpg", class: "img-banner-profile" %>
-  <div class="box">
-    <h2><%= t "view.user.popular_tag" %></h2>
-    <div class="holder">
-      <div class="frame-box">
-        <ul class="tags-cloud">
-          <li><a href="#"><%= t "view.user.new_category" %></a></li>
-        </ul>
+    <!-- banner -->
+    <%= image_tag "banner.jpg", class: "img-banner-profile" %>
+    <div class="box">
+      <h2><%= t "view.user.popular_tag" %></h2>
+      <div class="holder">
+        <div class="frame-box">
+          <ul class="tags-cloud">
+            <li><a href="#"><%= t "view.user.new_category" %></a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</aside>
+  </aside>
+<% end %>

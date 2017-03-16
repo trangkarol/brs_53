@@ -1,5 +1,11 @@
 class MarksController < ApplicationController
+  before_action :logged_in_user
   before_action :load_mark, only: [:update, :destroy]
+
+  def index
+    @bookmarks = Mark.list_newest_desc.paginate page: params[:page],
+      per_page: Settings.per_page
+  end
 
   def create
     @bookmark = Mark.new bookmark_params
