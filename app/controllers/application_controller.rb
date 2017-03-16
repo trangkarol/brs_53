@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-
-  before_action :load_user, only: [:correct_user, :following, :followers]
+  include ActivitiesHelper
 
   def logged_in_user
     unless logged_in?
@@ -13,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def correct_user
+    @user = User.find_by id: params[:id]
     unless @user
       flash[:warning] = t "app.controllers.not_found_user"
       redirect_to root_url
@@ -27,26 +27,4 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-
-  def following
-    @title = t "view.user.following_title"
-    @users = @user.following.paginate page: params[:page]
-    render "show_follow"
-  end
-
-  def followers
-    @title = t "view.user.followers_title"
-    @users = @user.followers.paginate page: params[:page]
-    render "show_follow"
-  end
-
-  private
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-    flash[:warning] = t "app.controllers.not_found_user"
-    redirect_to root_path
-  end
-
 end

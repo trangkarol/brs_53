@@ -324,3 +324,73 @@ $gray-medium-light: #eaeaea;
 .item-user-follow{
   margin-bottom: 10px;
 }
+.timeline-block{
+  width: 100% !important;
+  background: #f9f9f9;
+  border: 1px solid #e8e8e8;
+  border-radius: 9px;
+  position: relative;
+  padding: 11px 0 0;
+  width: 254px;
+  min-height: 170px;
+  max-height: 400px;
+  float: left;
+  margin: 0 20px 53px 0;
+  width: 720px;
+  font: 14px Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.38;
+  display: block;
+  overflow: hidden;
+}
+.timeline-subholder{
+  width: 100% !important;
+}
+.navbar-timline{
+  background: #3b5998 !important;
+  text-align: center;
+  border-radius: 6px 6px 0 0px !important;
+}
+.avatar-user{
+  height: 70px;
+  width: 70px;
+  float: left;
+  margin-left: 6px;
+}
+.user-infor{
+  height: 72px;
+  margin-left: 10px;
+}
+.user-name-link{
+  color: #365899 !important;
+  font-weight: bold;
+  cursor: pointer;
+}
+.footer-like-box{
+  padding: 10px;
+  margin: 10px;
+  border-top: 1px solid #e5e5e5;
+}
+.content-review-box{
+  padding: 10px;
+  margin: 6px;
+}
+.like-btn{
+  background: url(like-gray.png) no-repeat  !important;
+  width: 42px;
+  height: 28px;
+  padding: 2px;
+}
+.like-btn:hover{
+  background: url(like-blue.png) no-repeat  !important;
+  width: 42px;
+  height: 28px;
+}
+.avatar-newsfeed{
+  width: 50px;
+  height: 50px;
+}
+.timeline-block a{
+  color: blue;
+  cursor: pointer;
+}

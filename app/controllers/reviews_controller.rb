@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new review_params
     if @review.save
+      create_activity @review.id, "review"
       flash[:success] = t "view.review.review_success"
     else
       flash[:danger] = t "view.review.review_not_success"
@@ -22,6 +23,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
+      destroy_activity @review.id, "review"
       flash[:success] = t "view.review.delete_success"
     else
       flash[:danger] = t "view.review.delete_not_success"

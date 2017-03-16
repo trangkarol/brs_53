@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new comment_params
     if @comment.save
+      create_activity @comment.id, "comment"
       flash[:success] = t "view.comment.comment_success"
     else
       flash[:danger] = t "view.comment.comment_not_success"
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
+      destroy_activity @comment.id, "comment"
       flash[:success] = t "view.comment.delete_completed"
     else
       flash[:waring] = t "view.commt.delete_not_complete"
