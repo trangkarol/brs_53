@@ -1,0 +1,85 @@
+<% provide :title, t("view.user.mark_history") %>
+<div id="main">
+  <div class="main-holder">
+    <div class="main-frame">
+      <div class="panel-holder">
+        <div class="panel">
+          <ul class="breadcrumbs">
+          </ul>
+        </div>
+      </div>
+      <div id="content-profile">
+        <!-- content -->
+        <div class="content-profile">
+          <div class="box">
+            <h2><%= t "view.user.mark_history" %></h2>
+            <div class="holder">
+              <div class="frame-box">
+                <div class="container">
+                  <!-- description -->
+                  <div class="descript-profile">
+                    <div class="content-all-request">
+                      <% flash.each do |message_type, message| %>
+                        <div class="alert alert-<%= message_type %>">
+                          <%= message %>
+                        </div>
+                      <% end %>
+                      <% if check_bookmark current_user %>
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th>
+                                <%= t "view.request.title_book" %>
+                              </th>
+                               <th>
+                                <%= t "view.request.author" %>
+                              </th>
+                              <th>
+                                <%= t "view.request.category" %>
+                              </th>
+                              <th class="option-request">
+                                <%= t "view.request.status" %>
+                              </th>
+                              <th>
+                                <%= t "view.mark.time_mark" %>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% @bookmarks.each do |bookmark| %>
+                              <tr>
+                                <td>
+                                <%= link_to bookmark.book.title,
+                                  book_path(bookmark.book) %>
+                                </td>
+                                <td><%= bookmark.book.author %></td>
+                                <td><%= bookmark.book.category_name %></td>
+                                <td class="option-request">
+                                  <div class="status_mark">
+                                    <%= display_mark bookmark %>
+                                  </div>
+                                </td>
+                                <td><%= l bookmark.created_at,
+                                  format: Settings.date_time %></td>
+                              </tr>
+                            <% end %>
+                          </tbody>
+                        </table>
+                        <%= will_paginate @bookmarks %>
+                      <% else %>
+                        <div class="content-request">
+                          <%= t "view.user.no_bookmark" %>
+                        </div>
+                      <% end%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render "users/profile_menu" %>
+      </div>
+    </div>
+  </div>
+</div>

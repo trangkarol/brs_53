@@ -14,11 +14,14 @@ Rails.application.routes.draw do
   resources :books
   resources :reviews
   resources :comments
-  resources :marks
+  resources :marks, except: [:index]
   resources :activities
+  resources :requests, except: [:index]
   resources :relationships, only: [:create, :destroy]
 
   resources :users do
+    resources :requests, only: [:index]
+    resources :marks, only: [:index]
     resources :following, only: [:index]
     resources :followers, only: [:index]
   end

@@ -382,7 +382,7 @@ $gray-medium-light: #eaeaea;
   padding: 2px;
 }
 .like-btn:hover{
-  background: url(like-blue.png) no-repeat  !important;
+  background: url(like-blue.png) no-repeat !important;
   width: 42px;
   height: 28px;
 }
@@ -393,4 +393,13 @@ $gray-medium-light: #eaeaea;
 .timeline-block a{
   color: blue;
   cursor: pointer;
+}
+.content-all-request{
+  margin: 10px;
+}
+.option-request{
+  text-align: center !important;
+}
+#form-request{
+  z-index: 9999;
 }

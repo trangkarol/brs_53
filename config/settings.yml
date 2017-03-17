@@ -15,6 +15,7 @@ asc_value_star: 1
 init_count: 0
 maximum_introduction: 1000
 date: "%B %Y"
+date_time: "%d %B %Y - %H : %M"
 first_element: 0
 one_star: 1
 two_star: 2

@@ -265,7 +265,7 @@
     width:100%;
     background: url(bg-header-holder.png) repeat-x;
     position:relative;
-    z-index:9999;
+    z-index: 1;
   }
   .header-holder:after {
     content:"";

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314012317) do
+ActiveRecord::Schema.define(version: 20170316083844) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -54,12 +54,9 @@ ActiveRecord::Schema.define(version: 20170314012317) do
 
   create_table "like_activities", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "target_id"
-    t.string   "target_type"
-    t.boolean  "is_like"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_like_activities_on_user_id"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "marks", force: :cascade do |t|
@@ -94,11 +91,10 @@ ActiveRecord::Schema.define(version: 20170314012317) do
     t.integer  "user_id"
     t.string   "title"
     t.integer  "category_id"
-    t.integer  "status",      default: 0, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["category_id"], name: "index_requests_on_category_id"
-    t.index ["user_id"], name: "index_requests_on_user_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "author"
   end
 
   create_table "reviews", force: :cascade do |t|
