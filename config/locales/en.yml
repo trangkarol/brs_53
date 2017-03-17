@@ -21,6 +21,8 @@ en:
   find_all: "Find by title, author, rating ..."
   search_alert: "Did not find any results for keyword: "
   view:
+    like:
+      not_success: "Action not success"
     shared:
       error: "error"
       form_content: "The form contains"
@@ -28,10 +30,12 @@ en:
       hi: "Hi "
       account: "My account"
       profile: "Profile"
+      edit_profile: "Edit profile"
       new_user: "New user? "
       edit_user: "Edit user"
       signup_now: " Sign up now!"
       save_changes: "Save changes"
+      no_favorite: "No favorite book"
       confirm_password: "Confirmation"
       create_account: "Create my account"
       update_profile: "Update your profile"
@@ -39,7 +43,7 @@ en:
       username: "User name: "
       review: "REVIEWS"
       send_request: "Send request "
-      book_like: "List book liked"
+      favorite: "Books Favorite"
       request_manager: "List request"
       edit_user: "Edit user"
       bookmark: "Bookmark"
@@ -102,6 +106,8 @@ en:
       mark_book_not_success: "Add to bookmark not success"
       change_not_success: "Changes bookmark status not success"
     book:
+      button_like: "Like"
+      button_dislike: "Dislike"
       page_all_book: "All books"
       detail: "Book detail"
       open_bracket: "("
@@ -175,7 +181,7 @@ en:
       title_book: "Title book"
       category: "Category"
       status: "Status"
-      add_request: "Send request"
+      add_request: "Create request"
       no_request: "You haven't any request"
       form_request: "Form send request book to admin"
       send_success: "Send request success"
@@ -247,6 +253,7 @@ en:
       create_not_completed: "Create not completed"
   app:
     controllers:
+      not_found: "Not found"
       please_login: "Please login to access "
       update_success: "Profile updated"
       not_found_user: "Could not found User"

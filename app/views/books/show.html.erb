@@ -14,7 +14,7 @@
       <div id="content">
         <div class="content">
           <div class="box">
-            <h2><%= t "view.book.detail" %> </h2>
+            <h2><%= t "view.book.detail" %></h2>
             <span class="top-new big-top"></span>
             <div class="holder">
               <div class="frame-box">
@@ -44,44 +44,49 @@
                           <%= t "view.book.count_review" %>
                           <%= @book.reviews.size %>
                         </li>
+                        <li >
+                          <%= t "view.book.count_like" %>
+                          <i id="sum-like"> <%= @book.favorites.size %></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="id-book" data-id="<%= @book.id %>" class="info-panel">
+                      <ul class="list-group">
+                        <li><%= t "view.book.author" %>
+                          <%= @book.author %></li>
+                        <li><%= t "view.book.publish_date" %>
+                          <%= l @book.publish_date, format: Settings.date %></li>
                       </ul>
                     </div>
                     <div class="info-panel">
-                      <ul class="list-group">
-                      <li><%= t "view.book.author" %>
-                        <%= @book.author %></li>
-                      <li><%= t "view.book.publish_date" %>
-                        <%= l @book.publish_date, format: Settings.date %></li>
-                    </div>
-                    <div class="info-panel">
-                      <span class="like"></span>
-                    <% if logged_in? %>
-                      <% if @bookmarks.present? %>
-                        <% @marks.each do |mark| %>
-                          <% if (current_user? mark.user) && (@book.id == mark.
-                            book_id) %>
-                            <div class="status_mark">
-                              <%= display_mark mark %>
-                            </div>
-                            <%= link_to t("view.mark.unmark"), mark_path(mark),
-                              method: :delete, class: "unmark-link " %>
-                            <a href="#" class="more add-more change_mark"
-                              id="<%= mark.id %>">
-                              <span><%= t "view.book.change_bookmark" %></span>
-                            </a>
-                            <%= render partial: "form_mark", locals: {mark: mark,
-                              title: t("view.mark.title_change_mark"),
-                              button: t("view.mark.save")} %>
+                      <% if logged_in? %>
+                        <%= render "favorites/favorite_book" %>
+                        <% if @bookmarks.present? %>
+                          <% @marks.each do |mark| %>
+                            <% if (current_user? mark.user) && (@book.id == mark.
+                              book_id) %>
+                              <div class="status_mark">
+                                <%= display_mark mark %>
+                              </div>
+                              <%= link_to t("view.mark.unmark"), mark_path(mark),
+                                method: :delete, class: "unmark-link " %>
+                              <a href="#" class="more add-more change_mark"
+                                id="<%= mark.id %>">
+                                <span><%= t "view.book.change_bookmark" %></span>
+                              </a>
+                              <%= render partial: "form_mark", locals: {mark: mark,
+                                title: t("view.mark.title_change_mark"),
+                                button: t("view.mark.save")} %>
+                            <% end %>
                           <% end %>
+                        <% else %>
+                          <a href="#" class="more add-more " id="mark-click"><span>
+                            <%= t "view.book.add_bookmark" %></span></a>
                         <% end %>
-                      <% else %>
-                        <a href="#" class="more add-more " id="mark-click"><span>
-                          <%= t "view.book.add_bookmark" %></span></a>
+                        <%= render partial: "form_mark", locals: {mark: @mark,
+                          title: t("view.mark.title_form_mark"),
+                          button: t("view.admin.ok")} %>
                       <% end %>
-                      <%= render partial: "form_mark", locals: {mark: @mark,
-                        title: t("view.mark.title_form_mark"),
-                        button: t("view.admin.ok")} %>
-                    <% end %>
                     </div>
                     <div class="text-holder">
                       <p><%= t "view.book.introduction" %> </p>

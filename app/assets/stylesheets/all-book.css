@@ -403,3 +403,31 @@ $gray-medium-light: #eaeaea;
 #form-request{
   z-index: 9999;
 }
+.like-book{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #440e0e;
+  float: left;
+  font: 12px/18px Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+.dislike-book{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #440e0e;
+  float: left;
+  font: 12px/18px Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+.new_favorite{
+  margin-right: 10px;
+  margin-top: -1px;
+}
+.book-title{
+  color: #365899 !important;
+  font-weight: bold;
+}
+.content-profile .box h2{
+  text-align: center;
+  color: #1351c8 !important;
+}

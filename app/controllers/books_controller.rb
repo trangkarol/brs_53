@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :load_book, only: :show
+  before_action :load_favorites, only: :show
+  before_action :load_user, only: :show
 
   def index
     @categories = Category.all
@@ -24,6 +26,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @favorite = Favorite.new
     @mark = Mark.new
     @marks = Mark.all
     @bookmarks = Mark.check_user_book current_user, @book.id
@@ -43,4 +46,19 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def load_favorites
+    @favorites = Favorite.check_favorite_for_user current_user, @book.id
+    return if @favorites
+    flash[:warning] = t "app.controllers.not_found"
+    redirect_to :back
+  end
+
+  def load_user
+    if logged_in?
+      @user = User.find_by id: current_user.id
+      return if @user
+      flash[:warning] = t "app.controllers.not_found_user"
+      redirect_to root_path
+    end
+  end
 end
