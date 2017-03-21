@@ -1,0 +1,4 @@
+<% favorite = load_favorite_user(@user.id, @book.id) %>
+<a data-book-id="<%= @book.id %>" data-favorite-id="<%= favorite.id %>"
+  data-user-id="<%= current_user.id %>" data-like-status="false" id="like-click"
+  class="more sub-more wishlist" href="#" ><%= t "view.book.button_dislike" %></a>

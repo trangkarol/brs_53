@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PictureUploader
 
+  has_many :favorites
   has_many :rates
   has_many :like_activities
   has_many :marks, dependent: :destroy

@@ -1,0 +1,7 @@
+<div id="favorite-book">
+  <% unless @favorites.present? %>
+    <%= render "favorites/favorite" %>
+  <% else %>
+    <%= render "favorites/unfavorite" %>
+  <% end %>
+</div>

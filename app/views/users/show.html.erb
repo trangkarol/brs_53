@@ -13,7 +13,7 @@
         <!-- content -->
         <div class="content-profile">
           <div class="box">
-            <h2><%= t "view.user.profile" %></h2>
+            <h2 class= "title-box-content"><%= t "view.user.profile" %></h2>
             <div class="holder">
               <div class="frame-box">
                 <div class="container">
@@ -36,6 +36,11 @@
                                     glyphicon glyphicon-user">
                                     <%= t "view.user.username" %>
                                     <%= @user.name %>
+                                  </li>
+                                  <li class="list-group-item">
+                                    <%= link_to t("view.user.favorite"),
+                                      user_favorites_path(@user.id),
+                                      class: "user-menu-link" %>
                                   </li>
                                   <section class="stats">
                                     <%= render "shared/stats" %>

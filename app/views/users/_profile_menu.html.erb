@@ -5,20 +5,20 @@
       <!-- category box -->
       <h2><%= t "view.user.profile" %></h2>
       <div class="holder">
-        <div class="frame-box">
+        <div class="frame-box-user">
           <!-- accordion -->
           <ul class="user-menu">
             <li>
-              <%= link_to t("view.user.profile"), "#",
+              <%= link_to t("view.user.edit_profile"), edit_user_path(current_user),
                 class: "user-menu-link" %>
             </li>
             <li>
-              <%= link_to t("view.user.book_like"), "#",
-                class: "user-menu-link" %>
+              <%= link_to t("view.user.favorite"),
+                user_favorites_path(current_user), class: "user-menu-link" %>
             </li>
             <li>
-              <%= link_to t("view.user.read_history"), user_marks_path(current_user),
-                class: "user-menu-link" %>
+              <%= link_to t("view.user.read_history"),
+                user_marks_path(current_user), class: "user-menu-link" %>
             </li>
           <% unless is_admin? %>
             <li>

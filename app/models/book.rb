@@ -1,10 +1,12 @@
 class Book < ApplicationRecord
   belongs_to :category
 
+  has_many :favorites
   has_many :marks
   has_many :reviews, dependent: :destroy
   has_many :like_activities
   has_many :comments
+
   mount_uploader :picture, PictureUploader
 
   validates :author, presence: true
@@ -17,7 +19,7 @@ class Book < ApplicationRecord
 
   delegate :name, to: :category, prefix: true
 
-  scope :list_newest_desc, -> {order "created_at desc"}
+  scope :list_newest_desc, -> {order created_at: :desc}
   scope :search_title, -> search {where "title like ?", "%#{search}%"}
   scope :search_author, -> search {where "author like ?", "%#{search}%"}
   scope :search_rating, -> search {where "avg_rate like ?", "%#{search}%"}

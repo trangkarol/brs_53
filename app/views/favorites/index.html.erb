@@ -1,4 +1,4 @@
-<% provide :title, t("view.user.mark_history") %>
+<% provide :title, t("view.user.profile") %>
 <div id="main">
   <div class="main-holder">
     <div class="main-frame">
@@ -12,62 +12,47 @@
         <!-- content -->
         <div class="content-profile">
           <div class="box">
-            <h2><%= t "view.user.mark_history" %></h2>
+            <h2 class= "title-box-content"><%= t "view.user.favorite" %></h2>
             <div class="holder">
               <div class="frame-box">
                 <div class="container">
                   <!-- description -->
                   <div class="descript-profile">
                     <div class="content-all-request">
-                      <% if check_bookmark(current_user).present? %>
+                      <% if check_user_favorite(params[:user_id]).present? %>
                         <table class="table table-bordered">
                           <thead>
                             <tr>
                               <th>
                                 <%= t "view.request.title_book" %>
                               </th>
-                               <th>
-                                <%= t "view.request.author" %>
-                              </th>
                               <th>
                                 <%= t "view.request.category" %>
                               </th>
-                              <th class="option-request">
-                                <%= t "view.request.status" %>
-                              </th>
                               <th>
-                                <%= t "view.mark.time_mark" %>
+                                <%= t "view.request.author" %>
                               </th>
                             </tr>
                           </thead>
                           <tbody>
-                            <% @bookmarks.each do |bookmark| %>
-                              <% if bookmark.user_id == current_user.id %>
+                            <% @favorites.each do |favorite| %>
+                              <% if favorite.user_id == @user.id  %>
                                 <tr>
                                   <td>
-                                  <%= link_to bookmark.book.title,
-                                    book_path(bookmark.book) %>
+                                    <%= link_to favorite.book.title,
+                                      book_path(favorite.book),
+                                      class: "book-title" %>
                                   </td>
-                                  <td><%= bookmark.book.author %></td>
-                                  <td><%= bookmark.book.category_name %></td>
-                                  <td class="option-request">
-                                    <div class="status_mark">
-                                      <%= display_mark bookmark %>
-                                    </div>
-                                  </td>
-                                  <td><%= l bookmark.created_at,
-                                    format: Settings.date_time %></td>
+                                  <td><%= favorite.book.category_name %></td>
+                                  <td><%= favorite.book.author %></td>
                                 </tr>
                               <% end %>
                             <% end %>
                           </tbody>
                         </table>
-                        <%= will_paginate @bookmarks %>
                       <% else %>
-                        <div class="content-request">
-                          <%= t "view.user.no_bookmark" %>
-                        </div>
-                      <% end%>
+                        <%= t "view.user.no_favorite"%>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -75,7 +60,11 @@
             </div>
           </div>
         </div>
-        <%= render "users/profile_menu" %>
+        <% if logged_in? %>
+          <%= render "users/profile_menu" %>
+        <% else %>
+          <%= render "static_pages/aside" %>
+        <% end %>
       </div>
     </div>
   </div>

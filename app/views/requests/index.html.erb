@@ -34,7 +34,7 @@
                         <% @button = :button_create %>
                         <%= render "form" %>
                       </div>
-                      <% if check_request current_user.id %>
+                      <% if check_request(current_user.id).present? %>
                         <table class="table table-bordered">
                           <thead>
                             <tr>
@@ -63,14 +63,15 @@
                               <% if request.user_id == current_user.id %>
                                 <tr>
                                   <td><%= request.title %></td>
-                                  <td><%= request.category.name %></td>
+                                  <td><%= request.category_name %></td>
                                   <td><%= request.created_at %></td>
                                   <td><%= request.author %></td>
                                   <td><%= request.status %></td>
                                   <td class="option-request">
                                   <% if request.status? == request.pending? %>
                                     <a href="" class="glyphicon glyphicon-pencil"
-                                      data-toggle="modal" data-target="#form-edit-request">
+                                      data-toggle="modal"
+                                      data-target="#form-edit-request">
                                     </a>
                                     <div id="form-edit-request" class="modal fade"
                                       role="dialog">

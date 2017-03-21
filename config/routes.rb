@@ -16,10 +16,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :marks, except: [:index]
   resources :activities
+  resources :favorites, except: [:index]
   resources :requests, except: [:index]
   resources :relationships, only: [:create, :destroy]
 
   resources :users do
+    resources :favorites, only: [:index]
     resources :requests, only: [:index]
     resources :marks, only: [:index]
     resources :following, only: [:index]
